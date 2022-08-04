@@ -1,4 +1,4 @@
-package entities;
+package ro.sda.java37.finalProject.entities;
 
 import java.util.List;
 
