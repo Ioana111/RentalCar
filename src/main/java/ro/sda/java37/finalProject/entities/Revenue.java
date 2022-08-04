@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 public class Revenue {
 
-    public BigDecimal sumOfAmountsForCarRental;
+    private Long id;
+    private BigDecimal sumOfAmountsForCarRental;
 
 }

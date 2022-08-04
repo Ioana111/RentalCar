@@ -4,8 +4,9 @@ import java.util.Date;
 
 public class Loan {
 
-    public Employee employee;
-    public Date dateOfRental;
-    public String reservation;
-    public String comments;
+    private Long id;
+    private Employee employee;
+    private Date dateOfRental;
+    private Reservation reservation;
+    private String comments;
 }

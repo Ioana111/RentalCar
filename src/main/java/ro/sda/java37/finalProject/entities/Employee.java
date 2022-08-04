@@ -4,6 +4,6 @@ public class Employee {
 
     public String firstName;
     public String lastName;
-    public String position;
-    public String branchWereEmployeeWork;
+    public String position; //manager or employee
+    public Branch branchWereEmployeeWork;
 }

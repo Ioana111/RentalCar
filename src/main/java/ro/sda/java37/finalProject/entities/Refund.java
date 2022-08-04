@@ -4,9 +4,11 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Refund {
-    public String employee;
+
+    private Long id;
+    private Employee employee;
     public Date dateOfReturn;
-    public String reservation;
+    public Reservation reservation;
     public BigDecimal surcharge;
     public String comments;
 }
