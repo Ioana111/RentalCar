@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import ro.sda.java37.finalProject.dto.BookDto;
-import ro.sda.java37.finalProject.entities.Book;
 import ro.sda.java37.finalProject.services.BookService;
 
 
@@ -22,12 +21,12 @@ public class BookController {
     private BookService bookService;
 
 
-//    @GetMapping("/books")
-//    public String showBooks(Model model) {
-//        List<Book> books = bookService.getAllBooks();
-//        model.addAttribute("books", books);
-//        return "books";
-//    }
+    @GetMapping("/books")
+    public String showBooks(Model model) {
+        List<BookDto> books = bookService.getAllBooks();
+        model.addAttribute("books", books);
+        return "books";
+    }
 
     @GetMapping("/books/create")
     public String showForm(Model model) {
@@ -35,21 +34,21 @@ public class BookController {
         return "book_create";
     }
 
-//    @PostMapping("/books/create")
-//    public String createBook(@ModelAttribute("bookForm") @Valid BookDto form, Errors errors, Model model) {
-//        if (errors.hasErrors()) {
-//            return "book_create";
-//        }
-//        bookService.createBook(form);
-//        return "redirect:/books";
-//    }
+    @PostMapping("/books/create")
+    public String createBook(@ModelAttribute("bookForm") @Valid BookDto form, Errors errors, Model model) {
+        if (errors.hasErrors()) {
+            return "book_create";
+        }
+        bookService.createBook(form);
+        return "redirect:/books";
+    }
 
-//    @GetMapping("/books/edit/{bookId}")
-//    public String showEditForm(@PathVariable("bookId") int id, Model model) {//Model e modelul din Spring MVC
-//        BookDto bookForm = bookService.findById(id);
-//        model.addAttribute("bookForm", bookForm);
-//        return "book_create";
-//    }
+    @GetMapping("/books/edit/{bookId}")
+    public String showEditForm(@PathVariable("bookId") int id, Model model) {//Model e modelul din Spring MVC
+        BookDto bookForm = bookService.findById(id);
+        model.addAttribute("bookForm", bookForm);
+        return "book_create";
+    }
     @GetMapping("/books/delete/{bookId}")
     public String deleteBook(@PathVariable("bookId") int id, Model model) {//Model e modelul din Spring MVC
        bookService.deleteById(id);

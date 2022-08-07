@@ -2,12 +2,13 @@ package ro.sda.java37.finalProject.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ro.sda.javaremote37.springseed.dto.BookDto;
-import ro.sda.javaremote37.springseed.entities.Book;
-import ro.sda.javaremote37.springseed.exceptions.EntityNotFoundError;
-import ro.sda.javaremote37.springseed.repository.BookRepository;
+import ro.sda.java37.finalProject.dto.BookDto;
+import ro.sda.java37.finalProject.entities.Book;
+import ro.sda.java37.finalProject.exceptions.EntityNotFoundError;
+import ro.sda.java37.finalProject.repository.BookRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -16,9 +17,12 @@ public class BookService {
     private BookRepository bookRepository;
     private BookMapper bookMapper;
 
-    public List<Book> getAllBooks() {
+    public List<BookDto> getAllBooks() {
 
-        return bookRepository.findAll();
+        return bookRepository.findAll()
+                .stream()
+                .map(book ->bookMapper.convertToDto(book))
+                .collect(Collectors.toList());
     }
 
     public void createBook(BookDto form) {
@@ -35,4 +39,5 @@ public class BookService {
         bookRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Book with %s does not exist", id)));
         bookRepository.deleteById(id);
     }
+
 }
