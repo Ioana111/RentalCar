@@ -12,7 +12,6 @@ public class Branch {
     @GeneratedValue
     private Long id;
 
-
     private String address;
 
     @OneToMany(mappedBy = "workingBranch")
