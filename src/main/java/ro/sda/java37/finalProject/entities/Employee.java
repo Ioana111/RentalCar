@@ -1,9 +1,22 @@
 package ro.sda.java37.finalProject.entities;
 
-public class Employee {
+import lombok.Data;
 
-    public String firstName;
-    public String lastName;
-    public String position; //manager or employee
-    public Branch branchWereEmployeeWork;
+import javax.persistence.*;
+
+@Entity
+@Data
+public class Employee {
+    @Id
+    @GeneratedValue
+    private Long employeeId;
+
+    private String firstName;
+    private String lastName;
+    private String position; //manager or employee
+
+    @ManyToOne
+    private Branch workingBranch;
+
+
 }
