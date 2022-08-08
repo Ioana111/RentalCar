@@ -15,12 +15,5 @@ public class Customer {
     private String email;
     private String address;
 
-    @ManyToOne
-    private Branch branch;
-
-    @OneToOne
-    private Car car;
-
-
 
 }

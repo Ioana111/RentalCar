@@ -18,7 +18,7 @@ public class Refund {
     @OneToOne
     public Reservation reservation;
 
-    public BigDecimal surcharge; // warranty
+    public BigDecimal surcharge; // extra cost & return warranty
 
     public String comments;
 }

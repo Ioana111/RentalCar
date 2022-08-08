@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.Year;
+import java.util.List;
+
 @Entity
 @Data
 public class Car {
@@ -12,31 +14,25 @@ public class Car {
     @GeneratedValue
     private Long id;
 
-
     private String brand;
 
     private String model;
 
     private String bodyType;
 
-    private Year year; // integer or year?
-
+    private int year;
 
     private String color;
 
-
-    private Integer mileage;
+    private int mileage;
 
     private boolean isAvailable;
 
     @ManyToOne
     private Branch branch;
 
-    @OneToOne
-    private Customer customer;
-
-    @OneToOne
-    private Reservation reservation;
+    @OneToMany(mappedBy = "car")
+    private List<Reservation> reservations;
 
     private BigDecimal amountPerDay;
 
