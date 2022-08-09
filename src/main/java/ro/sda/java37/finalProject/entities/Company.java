@@ -24,7 +24,7 @@ public class Company {
     private List<Branch> branches;
 
     @OneToMany
-    private List<Customer> customer;
+    private List<Customer> customers;
 
 
 }
