@@ -1,8 +1,10 @@
 package ro.sda.java37.finalProject.services;
 
+import org.springframework.stereotype.Service;
 import ro.sda.java37.finalProject.dto.CarDto;
 import ro.sda.java37.finalProject.entities.Car;
 
+@Service
 public class CarMapper implements Mapper<Car, CarDto> {
     @Override
     public CarDto convertToDto(Car entity) {
