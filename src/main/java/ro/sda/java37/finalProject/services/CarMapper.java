@@ -1,6 +1,6 @@
 package ro.sda.java37.finalProject.services;
 
-import ro.sda.java37.finalProject.DTO.CarDto;
+import ro.sda.java37.finalProject.dto.CarDto;
 import ro.sda.java37.finalProject.entities.Car;
 
 public class CarMapper implements Mapper<Car, CarDto> {

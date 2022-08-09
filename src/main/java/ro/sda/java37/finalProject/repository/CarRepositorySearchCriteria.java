@@ -16,7 +16,7 @@ public class CarRepositorySearchCriteria {
     @Autowired
     private EntityManager em;
 
-    public List<Car>  findAllCars(ro.sda.java37.finalProject.DTO.CarDto search){
+    public List<Car>  findAllCars(ro.sda.java37.finalProject.dto.CarDto search){
         CriteriaBuilder builder=em.getCriteriaBuilder();
         CriteriaQuery<Car> query= builder.createQuery(Car.class);
         Root<Car> root= query.from(Car.class);

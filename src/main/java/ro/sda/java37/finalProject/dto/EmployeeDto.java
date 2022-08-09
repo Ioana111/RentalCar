@@ -1,4 +1,4 @@
-package ro.sda.java37.finalProject.DTO;
+package ro.sda.java37.finalProject.dto;
 
 import lombok.Data;
 
