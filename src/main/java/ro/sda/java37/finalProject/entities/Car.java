@@ -20,11 +20,11 @@ public class Car {
 
     private String bodyType;
 
-    private int year;
+    private Integer year;
 
     private String color;
 
-    private int mileage;
+    private Integer mileage;
 
     private boolean isAvailable;
 

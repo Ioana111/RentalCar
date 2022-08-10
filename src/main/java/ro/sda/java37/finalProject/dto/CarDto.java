@@ -10,9 +10,9 @@ public class CarDto {
     private String brand;
     private String model;
     private String bodyType;
-    private int year;
+    private Integer year;
     private String color;
-    private int mileage;
+    private Integer mileage;
     private boolean isAvailable;
     private BigDecimal amountPerDay;
 }
