@@ -6,6 +6,7 @@ import ro.sda.java37.finalProject.dto.CarDto;
 import ro.sda.java37.finalProject.dto.CustomerDto;
 import ro.sda.java37.finalProject.entities.Car;
 import ro.sda.java37.finalProject.entities.Customer;
+import ro.sda.java37.finalProject.exceptions.EntityNotFoundError;
 import ro.sda.java37.finalProject.repository.CustomerRepository;
 
 import java.util.List;
@@ -27,4 +28,10 @@ public class CustomerService {
     public List<CustomerDto> listAllCustomers() {
         return customerRepository.findAll().stream().map(c-> customerMapper.convertToDto(c)).collect(Collectors.toList());
     }
+
+    public void deleteById(Long id){
+      customerRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Specified customer does not exist", id)));
+      customerRepository.deleteById(id);
+    }
+
 }

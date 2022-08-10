@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ro.sda.java37.finalProject.dto.CarDto;
 
 import ro.sda.java37.finalProject.entities.Car;
+import ro.sda.java37.finalProject.exceptions.EntityNotFoundError;
 import ro.sda.java37.finalProject.repository.CarRepository;
 import ro.sda.java37.finalProject.repository.CarRepositorySearchCriteria;
 
@@ -31,4 +32,10 @@ CarRepositorySearchCriteria carRepositorySearchCriteria;
     public List<CarDto> search(CarDto search) {
         return carRepositorySearchCriteria.findAllCars(search).stream().map(c->carMapper.convertToDto(c))
                 .collect(Collectors.toList());    }
+
+  public void deleteById(Long id) {
+    carRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Specified car does not exist", id)));
+    carRepository.deleteById(id);
+  }
+
 }

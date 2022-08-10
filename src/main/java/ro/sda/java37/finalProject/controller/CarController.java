@@ -2,6 +2,7 @@ package ro.sda.java37.finalProject.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.java37.finalProject.dto.CarDto;
 import ro.sda.java37.finalProject.services.CarService;
@@ -30,4 +31,10 @@ public class CarController {
     public List<CarDto> listAllCars(CarDto search){
         return carService.search(search);
     }
+
+  @GetMapping ("/delete/{id}")
+  public String deleteCarById(@PathVariable("id") Long id, Model model){
+    carService.deleteById(id);
+    return "redirect:/car"; //pt angular e la fel?
+  }
 }
