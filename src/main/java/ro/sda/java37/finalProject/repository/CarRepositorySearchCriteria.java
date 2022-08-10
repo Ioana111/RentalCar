@@ -2,7 +2,11 @@ package ro.sda.java37.finalProject.repository;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import ro.sda.java37.finalProject.entities.Car;
 
 import javax.persistence.EntityManager;
@@ -12,6 +16,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
+
+
 @Repository
 public class CarRepositorySearchCriteria {
     @Autowired
