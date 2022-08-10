@@ -1,7 +1,6 @@
 package ro.sda.java37.finalProject.controller;
 
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.java37.finalProject.dto.CustomerDto;
 import ro.sda.java37.finalProject.services.CustomerService;
