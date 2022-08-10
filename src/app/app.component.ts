@@ -7,9 +7,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Demo';
+  title: string;
   data = {}  as any;
-  constructor(private http: HttpClient) {
-    http.get('resource').subscribe(data => this.data = data);
+  constructor() {
+    this.title = 'Spring Boot - Angular Application';
   }
 }
