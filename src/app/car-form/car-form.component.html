@@ -1,0 +1,20 @@
+
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #carForm="ngForm">
+      <div class="form-group">
+        <label for="name">Brand</label>
+        <input type="text" [(ngModel)]="car.brand"
+               class="form-control"
+               id="name"
+               name="brand"
+               placeholder="Enter your brand"
+               required #brand="ngModel">
+      </div>
+      <div [hidden]="!brand.pristine" class="alert alert-danger"> Brand is required</div>
+
+      <button type="submit" [disabled]="!carForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>
