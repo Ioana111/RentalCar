@@ -7,6 +7,11 @@ export class Car {
 
   model: string | undefined;
 
-
+  bodyType: string | undefined;
+  year?: number;
+  color: string | undefined;
+  mileage?: number;
+  isAvailable?: boolean;
+  amountPerDay?: bigint;
 
 }

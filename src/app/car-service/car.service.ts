@@ -9,7 +9,7 @@ import {Car} from "../model/car";
 export class CarService {
 
   private readonly carsUrl: string | undefined;
-  private car: Car | undefined;
+
 
   constructor(private http: HttpClient) {
     this.carsUrl = 'http://localhost:8081/api/car';
@@ -21,7 +21,7 @@ export class CarService {
   }
 
   public save(car: Car) {
-    return this.http.post<Car>(<string>this.carsUrl, this.car);
+    return this.http.post<Car>(<string>this.carsUrl, car);
   }
 }
 

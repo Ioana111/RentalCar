@@ -1,12 +1,14 @@
 package ro.sda.java37.finalProject.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.java37.finalProject.dto.CarDto;
 import ro.sda.java37.finalProject.services.CarService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -34,8 +36,8 @@ public class CarController {
     }
 
   @GetMapping ("/delete/{id}")
-  public String deleteCarById(@PathVariable("id") Long id, Model model){
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void deleteCarById(@PathVariable("id") Long id){
     carService.deleteById(id);
-    return "redirect:/car"; //pt angular e la fel?
   }
 }
