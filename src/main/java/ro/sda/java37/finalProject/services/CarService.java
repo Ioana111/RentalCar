@@ -15,27 +15,32 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class CarService {
-CarMapper carMapper;
-CarRepository carRepository;
-CarRepositorySearchCriteria carRepositorySearchCriteria;
+  CarMapper carMapper;
+  CarRepository carRepository;
+  CarRepositorySearchCriteria carRepositorySearchCriteria;
 
-    public CarDto createCar(CarDto car) {
-        Car carEntity= carMapper.convertToEntity(car);
-        carRepository.save(carEntity);
-        return carMapper.convertToDto(carEntity);
-    }
+  public CarDto createCar(CarDto car) {
+    Car carEntity = carMapper.convertToEntity(car);
+    carRepository.save(carEntity);
+    return carMapper.convertToDto(carEntity);
+  }
 
-    public List<CarDto> listAllCars() {
-        return carRepository.findAll().stream().map(c-> carMapper.convertToDto(c)).collect(Collectors.toList());
-    }
+  public List<CarDto> listAllCars() {
+    return carRepository.findAll().stream().map(c -> carMapper.convertToDto(c)).collect(Collectors.toList());
+  }
 
-    public List<CarDto> search(CarDto search) {
-        return carRepositorySearchCriteria.findAllCars(search).stream().map(c->carMapper.convertToDto(c))
-                .collect(Collectors.toList());    }
+  public List<CarDto> search(CarDto search) {
+    return carRepositorySearchCriteria.findAllCars(search).stream().map(c -> carMapper.convertToDto(c))
+      .collect(Collectors.toList());
+  }
 
   public void deleteById(Long id) {
-    carRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Specified car does not exist", id)));
+    carRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Specified car with %s does not exist", id)));
     carRepository.deleteById(id);
   }
 
+  public void updateObject(Long id, Car car) {
+    carRepository.findById(id)/*.orElseThrow(() -> new EntityNotFoundError(String.format("Specified car with %s does not exist", id)))*/;
+    carRepository.save(car);
+  }
 }

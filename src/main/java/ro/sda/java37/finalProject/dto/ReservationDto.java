@@ -9,9 +9,9 @@ import java.util.Date;
 public class ReservationDto {
     private Long id;
 
-    private Date dateOfBooking;
-    private Date dateFrom;
-    private Date dateTo;
+    private String dateOfBooking;
+    private String dateFrom;
+    private String dateTo;
     private BigDecimal totalAmount; //sum of all reservation days - final price
 
     private BigDecimal warranty;

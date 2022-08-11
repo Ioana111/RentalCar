@@ -34,4 +34,8 @@ public class CustomerService {
       customerRepository.deleteById(id);
     }
 
+  public void updateCustomer(Long id, Customer customer) {
+    customerRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Specified custoomer with %s does not exist", id)));
+    customerRepository.save(customer);
+  }
 }

@@ -1,9 +1,12 @@
 package ro.sda.java37.finalProject.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.java37.finalProject.dto.CustomerDto;
+import ro.sda.java37.finalProject.entities.Car;
+import ro.sda.java37.finalProject.entities.Customer;
 import ro.sda.java37.finalProject.services.CustomerService;
 
 import java.util.List;
@@ -27,8 +30,13 @@ public class CustomerController {
     }
 
     @GetMapping ("/delete/{id}")
-    public String deleteCustomerById(@PathVariable("id") Long id, Model model){
+    public void deleteCustomerById(@PathVariable("id") Long id){
       customerService.deleteById(id);
-      return "redirect:/customer";
     }
+
+  @PutMapping("/api/reservation/{id}")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void updateCustomerById(@RequestBody Customer customer, @PathVariable Long id) {
+    customerService.updateCustomer(id, customer);
+  }
 }

@@ -14,7 +14,7 @@ public class Reservation {
     @GeneratedValue
     private Long id;
 
-    private Date dateOfBooking;
+    private String dateOfBooking;
 
     @ManyToOne
     private Customer customer;
@@ -22,8 +22,8 @@ public class Reservation {
     @ManyToOne
     private Car car;
 
-    private Date dateFrom;
-    private Date dateTo;
+    private String dateFrom;
+    private String dateTo;
 
     @ManyToOne
     private Branch branchOfLoan;

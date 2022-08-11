@@ -26,8 +26,13 @@ public class EmployeeService {
     return employeeRepository.findAll().stream().map(e -> employeeMapper.convertToDto(e)).collect(Collectors.toList());
   }
 
-  public void deleteById(long id) {
+  public void deleteById(Long id) {
     employeeRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Employee with %s was not found", id)));
     employeeRepository.deleteById(id);
+  }
+
+  public void updateById(Long id, Employee employee){
+    employeeRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Employee with %s was not found", id)));
+    employeeRepository.save(employee);
   }
 }

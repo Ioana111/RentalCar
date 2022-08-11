@@ -1,15 +1,23 @@
 package ro.sda.java37.finalProject.services;
 
+import org.springframework.stereotype.Service;
+import ro.sda.java37.finalProject.dto.BranchDto;
 import ro.sda.java37.finalProject.entities.Branch;
 
-public class BranchMapper implements Mapper<Branch, BranchMapper>{
-    @Override
-    public BranchMapper convertToDto(Branch entity) {
-        return null;
-    }
+@Service
+public class BranchMapper implements Mapper<Branch, BranchDto> {
 
-    @Override
-    public Branch convertToEntity(BranchMapper dto) {
-        return null;
-    }
+  @Override
+  public BranchDto convertToDto(Branch entity) {
+    BranchDto result = new BranchDto();
+    result.setAddress(entity.getAddress());
+    return result;
+  }
+
+  @Override
+  public Branch convertToEntity(BranchDto dto) {
+    Branch result = new Branch();
+    result.setAddress(dto.getAddress());
+    return result;
+  }
 }
