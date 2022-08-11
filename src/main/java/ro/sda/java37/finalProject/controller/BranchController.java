@@ -11,14 +11,14 @@ import ro.sda.java37.finalProject.services.BranchService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @AllArgsConstructor
 @RequestMapping("api/branch")
 public class BranchController {
   private BranchService branchService;
 
   @PostMapping
-  public BranchDto createBranch(BranchDto branch) {
+  public BranchDto createBranch(@RequestBody BranchDto branch) {
     return branchService.createBranch(branch);
   }
 

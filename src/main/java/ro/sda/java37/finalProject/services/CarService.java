@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ro.sda.java37.finalProject.dto.CarDto;
 
+import ro.sda.java37.finalProject.entities.Branch;
 import ro.sda.java37.finalProject.entities.Car;
 import ro.sda.java37.finalProject.exceptions.EntityNotFoundError;
 import ro.sda.java37.finalProject.repository.CarRepository;
@@ -39,8 +40,22 @@ public class CarService {
     carRepository.deleteById(id);
   }
 
-  public void updateObject(Long id, Car car) {
-    carRepository.findById(id)/*.orElseThrow(() -> new EntityNotFoundError(String.format("Specified car with %s does not exist", id)))*/;
-    carRepository.save(car);
+  public void updateObject(Long id, CarDto carDto) {
+    Car entity = carRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Specified carDto with %s does not exist", id)));
+    entity.setAvailable(carDto.isAvailable());
+    entity.setBodyType(carDto.getBodyType());
+    entity.setBrand(carDto.getBrand());
+    entity.setColor(carDto.getColor());
+    entity.setAmountPerDay(carDto.getAmountPerDay());
+    entity.setMileage(carDto.getMileage());
+    entity.setModel(carDto.getModel());
+    entity.setYear(carDto.getYear());
+
+    carRepository.save(entity);
+  }
+
+  public void updateCarByBranch(Long id, Branch branch) {
+    Car carReturned = carRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Specified car with %s does not exist", id)));
+    carReturned.setBranch(branch);
   }
 }

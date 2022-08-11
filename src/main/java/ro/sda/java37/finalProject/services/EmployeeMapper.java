@@ -10,7 +10,7 @@ public class EmployeeMapper implements Mapper<Employee, EmployeeDto> {
   @Override
   public EmployeeDto convertToDto(Employee entity) {
     EmployeeDto result = new EmployeeDto();
-//    result.setEmployeeId(entity.getEmployeeId());
+    result.setEmployeeId(entity.getEmployeeId());
     result.setFirstName(entity.getFirstName());
     result.setLastName(entity.getLastName());
     result.setPosition(entity.getPosition());
@@ -20,7 +20,7 @@ public class EmployeeMapper implements Mapper<Employee, EmployeeDto> {
   @Override
   public Employee convertToEntity(EmployeeDto dto) {
     Employee result = new Employee();
-//    result.setEmployeeId(dto.getEmployeeId());
+    result.setEmployeeId(dto.getEmployeeId());
     result.setFirstName(dto.getFirstName());
     result.setLastName(dto.getLastName());
     result.setPosition(dto.getPosition());
