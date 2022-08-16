@@ -7,7 +7,7 @@ import java.util.Date;
 @Data
 public class LoanDto {
     private Long id;
-    private Date dateOfRental;
+    private String dateOfRental;
     private String comments;
 
 }

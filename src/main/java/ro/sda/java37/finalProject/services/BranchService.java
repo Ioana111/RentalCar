@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ro.sda.java37.finalProject.dto.BranchDto;
 import ro.sda.java37.finalProject.entities.Branch;
-import ro.sda.java37.finalProject.entities.Reservation;
 import ro.sda.java37.finalProject.exceptions.EntityNotFoundError;
 import ro.sda.java37.finalProject.repository.BranchRepository;
 
@@ -32,9 +31,11 @@ public class BranchService {
     branchRepository.deleteById(id);
   }
 
-  public void updateObject(Long id, Branch branch) {
-    branchRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Specified branch with %s does not exist", id)));
-    branchRepository.save(branch);
+  public void updateObject(Long id, BranchDto branchDto) {
+    Branch entity=branchRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Specified branch with %s does not exist", id)));
+    entity.setId(branchDto.getId());
+    entity.setAddress(branchDto.getAddress());
+    branchRepository.save(entity);
   }
 
 }

@@ -14,7 +14,7 @@ public class Company {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private String companyName;
     private String internetDomain;
     private String contactAddress;

@@ -4,20 +4,22 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+
 @Entity
+@Data
 public class Loan {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+  @Id
+  @GeneratedValue
+  private Long id;
 
-    @ManyToOne
-    private Employee employee;
+  private String comments;
 
-    private Date dateOfRental;
+  private String dateOfRental;
 
-    @OneToOne
-    private Reservation reservation;
+  @OneToOne
+  private Reservation reservation;
+  @ManyToOne
+  private Employee employee;
 
-    private String comments;
 }

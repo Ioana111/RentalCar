@@ -34,7 +34,7 @@ public class BranchController {
 
   @PutMapping("/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void updateBranchById(@RequestBody Branch branch, @PathVariable Long id) {
-    branchService.updateObject(id, branch);
+  public void updateBranchById(@RequestBody BranchDto branchDto, @PathVariable Long id) {
+    branchService.updateObject(id, branchDto);
   }
 }

@@ -9,12 +9,12 @@ import java.util.List;
 
 public interface CarRepository extends JpaRepository<Car, Long> {
 
-    List<Car> findAllByBrand(String brand);
-    List<Car> findAllByModel(String model);
-    List<Car> findAllByBodyType(String bodyType);
-    List<Car> findAllByYear(String year);
-    @Query("SELECT c FROM Car c WHERE c.isAvailable = true")
-    List<Car> findByAvailability(@Param("isAvailable") boolean isAvailable);
+//    List<Car> findAllByBrand(String brand);
+//    List<Car> findAllByModel(String model);
+//    List<Car> findAllByBodyType(String bodyType);
+//    List<Car> findAllByYear(String year);
+//    @Query("SELECT c FROM Car c WHERE c.isAvailable = true")
+//    List<Car> findByAvailability(@Param("isAvailable") boolean isAvailable);
 
 
 

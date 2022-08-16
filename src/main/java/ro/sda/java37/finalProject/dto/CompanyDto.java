@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class CompanyDto {
-    private int id;
+    private Long id;
     private String companyName;
     private String internetDomain;
     private String contactAddress;

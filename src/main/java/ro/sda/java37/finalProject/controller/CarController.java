@@ -31,8 +31,12 @@ public class CarController {
     return carService.listAllCars();
   }
 
+  /*The problem is that when we use application/x-www-form-urlencoded,
+  Spring doesn't understand it as a RequestBody.
+   So, if we want to use this we must remove the @RequestBody annotation./*
+   */
   @PostMapping("/search")
-  public List<CarDto> listAllCars(CarDto search) {
+  public List<CarDto> listAllCars(@RequestBody CarDto search) {
     return carService.search(search);
   }
 
