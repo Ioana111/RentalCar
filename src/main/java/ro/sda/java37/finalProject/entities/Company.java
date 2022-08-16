@@ -6,26 +6,38 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Entity
 @Data
 public class Company {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String companyName;
-    private String internetDomain;
-    private String contactAddress;
-    private String owner;
-    private String logoType;
+  @Id
+  @GeneratedValue
+  private Long id;
+  @NotEmpty
+  private String companyName;
+  @NotEmpty
+  private String internetDomain;
+  private String contactAddress;
 
-    @OneToMany
-    private List<Branch> branches;
+  @AssertTrue
+  public boolean isAddressValid() {
+    return contactAddress != null && contactAddress.split(" ").length >= 2;
+  }
 
-    @OneToMany
-    private List<Customer> customers;
+  @NotEmpty
+  private String owner;
+  @NotEmpty
+  private String logoType;
+
+  @OneToMany
+  private List<Branch> branches;
+
+  @OneToMany
+  private List<Customer> customers;
 
 
 }

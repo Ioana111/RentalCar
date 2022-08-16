@@ -1,15 +1,20 @@
 package ro.sda.java37.finalProject.dto;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.math.BigDecimal;
 
 @Data
+@Validated
 public class CarDto {
   private Long id;
   @NotEmpty
+  @Length(min = 3)
   private String brand;
   @NotEmpty
   private String model;

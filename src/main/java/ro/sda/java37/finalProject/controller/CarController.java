@@ -2,6 +2,7 @@ package ro.sda.java37.finalProject.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.java37.finalProject.dto.CarDto;
 import ro.sda.java37.finalProject.entities.Branch;
@@ -15,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/api/car")
 @CrossOrigin(origins = "http://localhost:4200")
+@Valid
 public class CarController {
   private CarService carService;
 
@@ -35,8 +37,8 @@ public class CarController {
   Spring doesn't understand it as a RequestBody.
    So, if we want to use this we must remove the @RequestBody annotation./*
    */
-  @PostMapping("/search")
-  public List<CarDto> listAllCars(@RequestBody CarDto search) {
+  @GetMapping  ("/search")
+  public List<CarDto> listAllCars(CarDto search) {
     return carService.search(search);
   }
 

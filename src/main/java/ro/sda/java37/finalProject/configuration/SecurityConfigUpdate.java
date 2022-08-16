@@ -21,7 +21,7 @@ public class SecurityConfigUpdate {
     http.authorizeRequests((authz) -> authz.antMatchers(HttpMethod.GET, "/api2/cars").hasAnyRole("ADMIN", "CARS")
 //                .antMatchers(HttpMethod.POST, "/api/author").authenticated()
 //                .antMatchers("/api/users/**").hasAuthority("ROLE_USER_ADMIN")
-        .anyRequest().permitAll() )
+        .anyRequest().permitAll())
       .formLogin().and()
       .httpBasic().and()
       .logout()
@@ -34,6 +34,7 @@ public class SecurityConfigUpdate {
     ;
     return http.build();
   }
+
   @Bean
   public InMemoryUserDetailsManager userDetailsService() {
     UserDetails admin = User.withDefaultPasswordEncoder()
@@ -47,16 +48,17 @@ public class SecurityConfigUpdate {
       .authorities("ROLE_USER")
       .build();
 
-    return new InMemoryUserDetailsManager(admin,user);
+    return new InMemoryUserDetailsManager(admin, user);
   }
+
   @Bean
-  public CorsConfigurationSource corsConfigurationSource(){
+  public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
     configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
-    configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT"));
+    configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT"));
     configuration.setAllowedHeaders(Arrays.asList("content-type"));
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/**",configuration);
+    source.registerCorsConfiguration("/**", configuration);
     return source;
   }
 }
