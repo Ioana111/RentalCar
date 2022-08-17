@@ -23,5 +23,6 @@ export class CarService {
   public save(car: Car) {
     return this.http.post<Car>(<string>this.carsUrl, car);
   }
+
 }
 
