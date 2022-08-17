@@ -11,6 +11,7 @@ import ro.sda.java37.finalProject.services.CarService;
 import ro.sda.java37.finalProject.services.ReservationService;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -62,6 +63,13 @@ public class CarController {
   public void updateCarByBranchAfterRefund(@RequestBody Car car, @PathVariable Long id) {
     carService.updateCarByBranch(id, car.getBranch());
   }
+
+  @GetMapping("/availability")
+  public List<CarDto> listAllAvailableCars(@RequestBody Date dateFrom, Date dateTo){
+    return carService.retrieveAllAvailableCars(dateFrom, dateTo);
+  }
+
+
 
 
 

@@ -30,6 +30,6 @@ public class CarDto {
   private boolean isAvailable;
   @NotNull
   private BigDecimal amountPerDay;
-  private Branch branch;
+  private BranchDto branch;
 
 }

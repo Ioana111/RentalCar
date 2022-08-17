@@ -24,5 +24,6 @@ public class ReservationDto {
   private BigDecimal totalAmount; //sum of all reservation days - final price
   @NotNull
   private BigDecimal warranty;
+  private CarDto car;
 
 }
