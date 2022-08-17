@@ -15,6 +15,7 @@
         <th scope="col">Cost</th>
         <th scope="col">Availability</th>
 
+
       </tr>
       </thead>
       <tbody>
@@ -27,7 +28,10 @@
         <td>{{ car.color }}</td>
         <td>{{ car.mileage }}</td>
         <td>{{ car.amountPerDay }}</td>
-        <td>{{ car.isAvailable }}</td>
+        <td>{{ car.available }}</td>
+        <td><button type="submit" [disabled]
+                                  class="btn btn-info" (click)="deleteCar(car)">Delete</button> </td>
+
 
       </tr>
       </tbody>

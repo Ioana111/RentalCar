@@ -11,7 +11,7 @@ export class Car {
   year?: number;
   color: string | undefined;
   mileage?: number;
-  isAvailable?: boolean;
+  available?: boolean;
   amountPerDay?: bigint;
 
 }
