@@ -12,6 +12,7 @@ import ro.sda.java37.finalProject.exceptions.EntityNotFoundError;
 import ro.sda.java37.finalProject.repository.CarRepository;
 import ro.sda.java37.finalProject.repository.CarRepositorySearchCriteria;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -59,6 +60,10 @@ public class CarService {
   public void updateCarByBranch(Long id, Branch branch) {
     Car carReturned = carRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Specified car with %s does not exist", id)));
     carReturned.setBranch(branch);
+  }
+
+  public List<CarDto> retrieveAllAvailableCars(Date fromDate, Date toDate){
+    return carRepository.retrieveAvailableCars(fromDate, toDate).stream().map(c->carMapper.convertToDto(c)).collect(Collectors.toList());
   }
 
 }
