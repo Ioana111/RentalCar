@@ -1,6 +1,7 @@
 package ro.sda.java37.finalProject.entities;
 
 import lombok.Data;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -18,26 +19,19 @@ public class Car {
   @GeneratedValue
   private Long id;
 
-  @NotEmpty
-  @Length(min = 3, message = "Brand should have at least 3 characters.")
   private String brand;
-  @NotEmpty
   private String model;
-  @NotEmpty
   private String bodyType;
-  @NotNull
   private Integer year;
-  @NotEmpty
   private String color;
-  @NotNull
   private Integer mileage;
   private boolean isAvailable;
-  @NotNull
   private BigDecimal amountPerDay;
   @ManyToOne
   private Branch branch;
 
   @OneToMany(mappedBy = "car")
+//  @Cascade(org.hibernate.annotations.CascadeType.ALL)
   private List<Reservation> reservations;
 
 

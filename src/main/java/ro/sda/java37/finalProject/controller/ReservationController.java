@@ -30,9 +30,8 @@ public class ReservationController {
   }
 
   @GetMapping("/delete/{id}")
-  public String deleteReservationById(@PathVariable("id") Long id, Model model) {
+  public void deleteReservationById(@PathVariable("id") Long id, Model model) {
     reservationService.deleteById(id);
-    return "redirect:/reservation"; //pt angular e la fel?
   }
 
   @PutMapping("/api/reservation/{id}")
@@ -40,5 +39,6 @@ public class ReservationController {
   public void updateReservationById(@RequestBody Reservation reservation, @PathVariable Long id) {
     reservationService.updateObject(id, reservation);
   }
+
 
 }

@@ -2,12 +2,13 @@ package ro.sda.java37.finalProject.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.java37.finalProject.dto.CarDto;
-import ro.sda.java37.finalProject.entities.Branch;
+import ro.sda.java37.finalProject.dto.ReservationDto;
 import ro.sda.java37.finalProject.entities.Car;
+import ro.sda.java37.finalProject.entities.Reservation;
 import ro.sda.java37.finalProject.services.CarService;
+import ro.sda.java37.finalProject.services.ReservationService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -16,15 +17,17 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/api/car")
 @CrossOrigin(origins = "http://localhost:4200")
-@Valid
+
 public class CarController {
   private CarService carService;
+  private ReservationService reservationService;
+
 
   //create car
   //find all cars
   //search by def criteria
   @PostMapping()
-  public CarDto createCar(@RequestBody CarDto car) {
+  public CarDto createCar(CarDto car) {
     return carService.createCar(car);
   }
 
@@ -37,12 +40,12 @@ public class CarController {
   Spring doesn't understand it as a RequestBody.
    So, if we want to use this we must remove the @RequestBody annotation./*
    */
-  @GetMapping  ("/search")
-  public List<CarDto> listAllCars(CarDto search) {
+  @PostMapping  ("/search")
+  public List<CarDto> listAllCars(@RequestBody @Valid CarDto search) {
     return carService.search(search);
   }
 
-  @GetMapping("/delete/{id}")
+  @GetMapping ("/delete/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public void deleteCarById(@PathVariable("id") Long id) {
     carService.deleteById(id);
@@ -59,5 +62,7 @@ public class CarController {
   public void updateCarByBranchAfterRefund(@RequestBody Car car, @PathVariable Long id) {
     carService.updateCarByBranch(id, car.getBranch());
   }
+
+
 
 }

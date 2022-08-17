@@ -16,10 +16,8 @@ public class Loan {
   @Id
   @GeneratedValue
   private Long id;
-  @NotNull(message = "Date format should be MM/dd/yyyy")// trebuie sa facem exceptie aici)
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+
   private Date dateOfRental;
-  @NotEmpty
   private String comments;
 
   @OneToOne

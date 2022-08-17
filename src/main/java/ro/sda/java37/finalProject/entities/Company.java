@@ -17,20 +17,11 @@ public class Company {
   @Id
   @GeneratedValue
   private Long id;
-  @NotEmpty
   private String companyName;
-  @NotEmpty
   private String internetDomain;
   private String contactAddress;
 
-  @AssertTrue
-  public boolean isAddressValid() {
-    return contactAddress != null && contactAddress.split(" ").length >= 2;
-  }
-
-  @NotEmpty
   private String owner;
-  @NotEmpty
   private String logoType;
 
   @OneToMany

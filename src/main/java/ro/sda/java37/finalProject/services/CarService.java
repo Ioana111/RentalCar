@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ro.sda.java37.finalProject.dto.CarDto;
 
+import ro.sda.java37.finalProject.dto.ReservationDto;
 import ro.sda.java37.finalProject.entities.Branch;
 import ro.sda.java37.finalProject.entities.Car;
+import ro.sda.java37.finalProject.entities.Reservation;
 import ro.sda.java37.finalProject.exceptions.EntityNotFoundError;
 import ro.sda.java37.finalProject.repository.CarRepository;
 import ro.sda.java37.finalProject.repository.CarRepositorySearchCriteria;
@@ -58,4 +60,5 @@ public class CarService {
     Car carReturned = carRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Specified car with %s does not exist", id)));
     carReturned.setBranch(branch);
   }
+
 }

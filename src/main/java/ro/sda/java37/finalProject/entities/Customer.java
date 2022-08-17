@@ -13,16 +13,9 @@ public class Customer {
   @Id
   @GeneratedValue
   private Long id;
-  @NotEmpty
   private String firstName;
-  @NotEmpty
   private String lastName;
-  @Email
   private String email;
   private String address;
-  @AssertTrue
-  public boolean isAddressValid() {
-    return address != null && address.split(" ").length >= 2;
-  }
 
 }

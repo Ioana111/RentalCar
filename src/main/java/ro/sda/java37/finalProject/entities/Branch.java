@@ -17,11 +17,6 @@ public class Branch {
 
 
     private String address;
-  @AssertTrue
-  public boolean isAddressValid() {
-    return address != null && address.split(" ").length >= 2;
-  }
-
 
 
   @OneToMany(mappedBy = "workingBranch")

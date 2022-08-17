@@ -16,25 +16,21 @@ public class Reservation {
   @Id
   @GeneratedValue
   private Long id;
-  @NotNull // trebuie sa facem exceptie aici
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
-  private Date dateOfBooking;  @ManyToOne
+
+  private Date dateOfBooking;
+  @ManyToOne
   private Customer customer;
   @ManyToOne
   private Car car;
-  @NotNull // trebuie sa facem exceptie aici
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+
   private Date dateFrom;
-  @NotNull // trebuie sa facem exceptie aici
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+
   private Date dateTo;
   @ManyToOne
   private Branch branchOfLoan;
   @ManyToOne
   private Branch returnBranch;
-  @NotNull
   private BigDecimal totalAmount; //sum of all reservation days - final price
-  @NotNull
   private BigDecimal warranty;
 
 
