@@ -9,6 +9,7 @@ import ro.sda.java37.finalProject.entities.Branch;
 import ro.sda.java37.finalProject.entities.Reservation;
 import ro.sda.java37.finalProject.services.BranchService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,7 +19,7 @@ public class BranchController {
   private BranchService branchService;
 
   @PostMapping
-  public BranchDto createBranch(@RequestBody BranchDto branch) {
+  public BranchDto createBranch(@RequestBody @Valid BranchDto branch) {
     return branchService.createBranch(branch);
   }
 
@@ -34,7 +35,7 @@ public class BranchController {
 
   @PutMapping("/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void updateBranchById(@RequestBody BranchDto branchDto, @PathVariable Long id) {
+  public void updateBranchById(@RequestBody @Valid BranchDto branchDto, @PathVariable Long id) {
     branchService.updateObject(id, branchDto);
   }
 }

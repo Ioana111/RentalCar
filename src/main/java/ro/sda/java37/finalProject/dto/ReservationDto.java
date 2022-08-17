@@ -9,8 +9,8 @@ import java.util.Date;
 
 @Data
 public class ReservationDto {
-  private Long id;
 
+  private Long id;
   @NotNull // trebuie sa facem exceptie aici
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
   private Date dateOfBooking;
@@ -24,4 +24,6 @@ public class ReservationDto {
   private BigDecimal totalAmount; //sum of all reservation days - final price
   @NotNull
   private BigDecimal warranty;
+  private CarDto car;
+
 }

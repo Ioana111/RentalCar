@@ -14,11 +14,8 @@ public class Employee {
   @GeneratedValue
   private Long employeeId;
 
-  @NotEmpty
   private String firstName;
-  @NotEmpty
   private String lastName;
-  @NotEmpty
   private String position;
   @ManyToOne
   private Branch workingBranch;

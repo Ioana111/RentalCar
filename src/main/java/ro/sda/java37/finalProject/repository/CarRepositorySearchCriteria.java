@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import ro.sda.java37.finalProject.dto.CarDto;
 import ro.sda.java37.finalProject.entities.Car;
 
 import javax.persistence.EntityManager;
@@ -23,7 +24,7 @@ public class CarRepositorySearchCriteria {
     @Autowired
     private EntityManager em;
 
-    public List<Car>  findAllCars(ro.sda.java37.finalProject.dto.CarDto search){
+    public List<Car>  findAllCars(CarDto search){
         CriteriaBuilder builder=em.getCriteriaBuilder();
         CriteriaQuery<Car> query= builder.createQuery(Car.class);
         Root<Car> root= query.from(Car.class);
@@ -48,12 +49,14 @@ public class CarRepositorySearchCriteria {
             Predicate hasYear  = builder.equal(root.get("car0_.year"),search.getYear());
             predicates.add(hasYear);
         }
-        if (search.getMileage()!=null){
-            Predicate hasMileage  = builder.equal(root.get("car0_.mileage"),search.getMileage());
-            predicates.add(hasMileage);
+        if (search.getMileage()!=null) {
+          Predicate hasMileage = builder.equal(root.get("car0_.mileage"), search.getMileage());
+          predicates.add(hasMileage);
         }
-
-
+          if (search.getBranch()!=null) {
+            Predicate hasBranch = builder.equal(root.get("car0_.branch"), search.getBranch());
+            predicates.add(hasBranch);
+          }
 
         query.where(builder.and(predicates.toArray(new Predicate[predicates.size()])));
 

@@ -19,11 +19,8 @@ public class Refund {
   private Employee employee;
   @OneToOne
   public Reservation reservation;
-  @NotNull // trebuie sa facem exceptie aici
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+
   public Date dateOfReturn;
-  @NotNull
   public BigDecimal surcharge;
-  @NotEmpty
   public String comments;
 }
