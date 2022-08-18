@@ -6,13 +6,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CarListComponent } from './car-list/car-list.component';
 import { CarFormComponent } from './car-form/car-form.component';
-import { CarService} from './car-service/car.service'
+import { CarService} from './car-service/car.service';
+import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import { ReservationFormComponent } from './reservation-form/reservation-form.component'
+import {ReservationService} from "./reservation/reservation-service.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     CarListComponent,
-    CarFormComponent
+    CarFormComponent,
+    ReservationListComponent,
+    ReservationFormComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +25,7 @@ import { CarService} from './car-service/car.service'
     HttpClientModule,
     FormsModule
   ],
-  providers: [CarService],
+  providers: [CarService, ReservationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
