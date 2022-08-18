@@ -1,0 +1,40 @@
+
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">DateOfBooking</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Car</th>
+        <th scope="col">DateFrom</th>
+        <th scope="col">DateTo</th>
+        <th scope="col">BranchOfLoan</th>
+        <th scope="col">ReturnBranch</th>
+        <th scope="col">TotalAmount</th>
+        <th scope="col">Warranty</th>
+
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let reservation of reservation">
+  <td>{{ reservation.id }}</td>
+  <td>{{ reservation.dateOfBooking }}</td>
+  <td>{{ reservation.customer }}</td>
+  <td>{{ reservation.car }}</td>
+  <td>{{ reservation.dateFrom }}</td>
+  <td>{{ reservation.dateTo }}</td>
+  <td>{{ reservation.branchOfLoan }}</td>
+  <td>{{ reservation.returnBranch }}</td>
+  <td>{{ reservation.totalAmount}}</td>
+  <td>{{ reservation.warranty}}</td>
+  <td><button type="submit" [disabled]
+              class="btn btn-info" (click)="deleteReservation(reservation)">DeleteReservation</button> </td>
+
+
+</tr>
+</tbody>
+</table>
+</div>
+</div>
