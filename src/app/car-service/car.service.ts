@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Car} from "../model/car";
 
@@ -29,8 +29,12 @@ export class CarService {
   }
 
   public deleteCar(car: Car): Observable<Car> {
-    alert("Sunt in service " +car.id);
+    alert("Are you sure you want to delete " + car.brand + car.id + "?");
     return this.http.get<Car>(this.carsUrl + "/delete/" + car.id);
+  }
+
+  public delete(car: Car) {
+    return this.http.delete<Car>(<string>this.carsUrl + "/delete/{id}");
   }
 }
 

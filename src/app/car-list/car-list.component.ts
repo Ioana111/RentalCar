@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Car} from "../model/car";
 import {CarService} from "../car-service/car.service";
-import {ActivatedRoute,Router} from "@angular/router";
 
 @Component({
   selector: 'app-car-list',
@@ -23,7 +22,6 @@ ngOnInit() {
     });
 }
 deleteCar(car: Car){
-    alert(car.id);
     this.carService.deleteCar(car).subscribe(data=>this.updateList());
 }
 

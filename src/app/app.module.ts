@@ -10,6 +10,8 @@ import { CarService} from './car-service/car.service';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component'
 import {ReservationService} from "./reservation/reservation-service.service";
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeFormComponent } from './employee-form/employee-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import {ReservationService} from "./reservation/reservation-service.service";
     CarListComponent,
     CarFormComponent,
     ReservationListComponent,
-    ReservationFormComponent
+    ReservationFormComponent,
+    EmployeeListComponent,
+    EmployeeFormComponent
   ],
   imports: [
     BrowserModule,
