@@ -29,7 +29,7 @@ export class CarService {
   }
 
   public deleteCar(car: Car): Observable<Car> {
-    alert("Are you sure you want to delete " + car.brand + car.id + "?");
+    alert("Are you sure you want to delete " + car.brand +" having the id "+ car.id + "?");
     return this.http.get<Car>(this.carsUrl + "/delete/" + car.id);
   }
 

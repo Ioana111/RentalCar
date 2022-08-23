@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'add-car', component: CarFormComponent },
   { path: 'reservations', component: ReservationListComponent },
   { path: 'add-reservation', component: ReservationFormComponent },
-  { path: 'employees', component: EmployeeListComponent},
+  { path: 'employee', component: EmployeeListComponent},
   { path: 'add-employees', component: EmployeeFormComponent}
 
 
