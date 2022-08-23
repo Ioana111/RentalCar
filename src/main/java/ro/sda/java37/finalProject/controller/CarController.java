@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.java37.finalProject.dto.CarDto;
-import ro.sda.java37.finalProject.dto.ReservationDto;
 import ro.sda.java37.finalProject.entities.Car;
-import ro.sda.java37.finalProject.entities.Reservation;
 import ro.sda.java37.finalProject.services.CarService;
 import ro.sda.java37.finalProject.services.ReservationService;
 
@@ -68,8 +66,6 @@ public class CarController {
   public List<CarDto> listAllAvailableCars(@RequestBody Date dateFrom, Date dateTo){
     return carService.retrieveAllAvailableCars(dateFrom, dateTo);
   }
-
-
 
 
 

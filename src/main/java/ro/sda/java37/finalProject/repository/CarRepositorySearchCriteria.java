@@ -53,10 +53,11 @@ public class CarRepositorySearchCriteria {
           Predicate hasMileage = builder.equal(root.get("car0_.mileage"), search.getMileage());
           predicates.add(hasMileage);
         }
-          if (search.getBranch()!=null) {
-            Predicate hasBranch = builder.equal(root.get("car0_.branch"), search.getBranch());
-            predicates.add(hasBranch);
-          }
+//          if (search.getBranch()!=null) {
+//            Predicate hasBranch = builder.equal(root.get("car0_.branch"), search.getBranch());
+//            predicates.add(hasBranch);
+//
+//          }
 
         query.where(builder.and(predicates.toArray(new Predicate[predicates.size()])));
 

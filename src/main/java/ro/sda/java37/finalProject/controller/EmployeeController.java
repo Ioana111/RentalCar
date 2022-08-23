@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/employee")
+@CrossOrigin(origins = "http://localhost:4200")
 public class EmployeeController {
 
   private EmployeeService employeeService;
@@ -29,7 +30,7 @@ public class EmployeeController {
     return employeeService.listAllEmployees();
   }
 
-  @GetMapping("delete/{employeeId}")
+  @GetMapping("/delete/{employeeId}")
   public void deleteEmployeeById(@PathVariable("employeeId") Long id) {
     employeeService.deleteById(id);
   }
