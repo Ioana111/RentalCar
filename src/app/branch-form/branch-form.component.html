@@ -1,0 +1,29 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #branchForm="ngForm">
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" [(ngModel)]="branch.address"
+               class="form-control"
+               id="address"
+               name="address"
+               placeholder="Enter branch address"
+               required #address="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="facilityEmployees">facilityEmployees</label>
+        <input type="text" [(ngModel)]="branch.facilityEmployees"
+               class="form-control"
+               id="facilityEmployees"
+               name="facilityEmployees"
+               placeholder="Enter branch's facility Employees"
+               required #facilityEmployees="ngModel">
+      </div>
+      <div [hidden]="!address.pristine" class="alert alert-danger"> All fields are required</div>
+
+      <button type="submit" [disabled]="!branchForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>
+

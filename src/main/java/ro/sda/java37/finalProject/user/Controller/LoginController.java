@@ -11,6 +11,6 @@ import java.util.logging.Logger;
 @SessionAttributes("customer")
 public class LoginController {
 
-   // Logger logger = Logger.getLogger(UserControler.class);
+   // Logger logger = Logger.getLogger(UserController.class);
 
 }

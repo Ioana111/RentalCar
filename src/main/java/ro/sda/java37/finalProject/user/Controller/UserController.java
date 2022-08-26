@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping
-public class UserControler {
+public class UserController {
 
     //@Autowired
     //private CustomerService customerService;
