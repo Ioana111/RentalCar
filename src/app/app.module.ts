@@ -12,6 +12,12 @@ import { ReservationFormComponent } from './reservation-form/reservation-form.co
 import {ReservationService} from "./reservation/reservation-service.service";
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
+import { BranchListComponent } from './branch-list/branch-list.component';
+import { CompanyListComponent } from './company-list/company-list.component';
+import { BranchFormComponent } from './branch-form/branch-form.component';
+import { CompanyFormComponent } from './company-form/company-form.component';
+import {BranchService} from "./branch-service/branch.service";
+import {EmployeeService} from "./employee-service/employee.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +27,11 @@ import { EmployeeFormComponent } from './employee-form/employee-form.component';
     ReservationListComponent,
     ReservationFormComponent,
     EmployeeListComponent,
-    EmployeeFormComponent
+    EmployeeFormComponent,
+    BranchListComponent,
+    CompanyListComponent,
+    BranchFormComponent,
+    CompanyFormComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +39,7 @@ import { EmployeeFormComponent } from './employee-form/employee-form.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [CarService, ReservationService],
+  providers: [CarService, ReservationService, BranchService, EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
