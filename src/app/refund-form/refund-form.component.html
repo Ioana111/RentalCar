@@ -1,0 +1,39 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #refundForm="ngForm">
+      <div class="form-group">
+        <label for="dateOfReturn">Date Of Return</label>
+        <input type="text" [(ngModel)]="refund.dateOfReturn"
+               class="form-control"
+               id="dateOfReturn"
+               name="dateOfReturn"
+               placeholder="Enter date Of return"
+               required #brand="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="surcharge">Surcharge</label>
+        <input type="text" [(ngModel)]="refund.surcharge"
+               class="form-control"
+               id="surcharge"
+               name="surcharge"
+               placeholder="Enter surcharge"
+               required #surcharge="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="comments">Comments</label>
+        <input type="text" [(ngModel)]="refund.comments"
+               class="form-control"
+               id="comments"
+               name="comments"
+               placeholder="Enter comments"
+               required #comments="ngModel">
+      </div>
+
+      <div [hidden]="!brand.pristine" class="alert alert-danger"> All fields are required</div>
+
+      <button type="submit" [disabled]="!refundForm.form.valid"
+              class="btn btn-info">Submit
+      </button>
+    </form>
+  </div>
+</div>

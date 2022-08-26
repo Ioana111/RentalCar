@@ -8,10 +8,13 @@ import { CarListComponent } from './car-list/car-list.component';
 import { CarFormComponent } from './car-form/car-form.component';
 import { CarService} from './car-service/car.service';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
-import { ReservationFormComponent } from './reservation-form/reservation-form.component'
+import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import {ReservationService} from "./reservation/reservation-service.service";
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
+import { RefundListComponent } from './refund-list/refund-list.component';
+import { RefundFormComponent } from './refund-form/refund-form.component';
+import {RefundService} from './refund-service/refund.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { EmployeeFormComponent } from './employee-form/employee-form.component';
     ReservationListComponent,
     ReservationFormComponent,
     EmployeeListComponent,
-    EmployeeFormComponent
+    EmployeeFormComponent,
+    RefundListComponent,
+    RefundFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,7 @@ import { EmployeeFormComponent } from './employee-form/employee-form.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [CarService, ReservationService],
+  providers: [CarService, ReservationService, RefundService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

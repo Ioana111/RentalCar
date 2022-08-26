@@ -1,0 +1,28 @@
+
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">DateOfReturn</th>
+        <th scope="col">Surcharge</th>
+        <th scope="col">Comments</th>
+
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let refund of refund">
+  <td>{{ refund.id }}</td>
+  <td>{{ refund.dateOfReturn }}</td>
+  <td>{{ refund.surcharge}}</td>
+  <td>{{ refund.comments}}</td>
+  <td><button type="submit" [disabled]
+              class="btn btn-info" (click)="deleteRefund(refund)">DeleteRefund</button> </td>
+
+
+</tr>
+</tbody>
+</table>
+</div>
+</div>
