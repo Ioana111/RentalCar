@@ -2,10 +2,13 @@ package ro.sda.java37.finalProject.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ro.sda.java37.finalProject.dto.ReservationDto;
 import ro.sda.java37.finalProject.entities.Branch;
+import ro.sda.java37.finalProject.entities.Car;
 import ro.sda.java37.finalProject.entities.Reservation;
 import ro.sda.java37.finalProject.exceptions.EntityNotFoundError;
+import ro.sda.java37.finalProject.repository.CarRepository;
 import ro.sda.java37.finalProject.repository.ReservationRepository;
 
 import java.util.Date;
@@ -18,10 +21,15 @@ public class ReservationService {
 
   ReservationMapper reservationMapper;
   ReservationRepository reservationRepository;
-
+  CarRepository carRepository;
+@Transactional
   public ReservationDto createReservation(ReservationDto reservation) {
     Reservation reservationEntity = reservationMapper.convertToEntity(reservation);
+
     reservationRepository.save(reservationEntity);
+    Car car =reservationEntity.getCar();
+    car.setAvailable(false);
+    carRepository.save(car);
     return reservationMapper.convertToDto(reservationEntity);
   }
 

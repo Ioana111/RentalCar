@@ -12,13 +12,21 @@
                required #customer="ngModel">
       </div>
       <div class="form-group">
-        <label for="car">Car</label>
-        <input type="text" [(ngModel)]="reservation.car"
-               class="form-control"
-               id="car"
-               name="car"
-               placeholder="Enter car"
-               required #car="ngModel">
+<!--        <label for="car">Car</label>-->
+<!--        <input type="text" [(ngModel)]="reservation.car"-->
+<!--               class="form-control"-->
+<!--               id="car"-->
+<!--               name="car"-->
+<!--               placeholder="Enter car"-->
+<!--               required #car="ngModel">-->
+        <mat-form-field appearance="fill">
+          <mat-label>Car</mat-label>
+          <mat-select [(value)]="selectedCar">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let car of availableCars" value="car.id">{{car.brand}}</mat-option>
+
+          </mat-select>
+        </mat-form-field>
       </div>
 
       <div class="form-group">
@@ -77,10 +85,9 @@
                required #warranty="ngModel">
       </div>
 
-<!--    <div [hidden]="!customer.pristine" class="alert alert-danger"> All fields are required</div>-->
-
-<!--      <button type="submit" [disabled]="!reservationForm.valid"  -->
-<!--              class="btn btn-info">Submit</button>-->
+    <div [hidden]="!customer.pristine" class="alert alert-danger"> All fields are required</div>
+     <button type="submit" [disabled]="!reservationForm.form.valid"
+              class="btn btn-info">Submit</button>
     </form>
   </div>
 </div>

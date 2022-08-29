@@ -12,7 +12,7 @@ export class ReservationService {
   private readonly reservationsUrl: string ;
 
   constructor(private http: HttpClient) {
-    this.reservationsUrl = 'http://localhost:8081/api/reservations';
+    this.reservationsUrl = 'http://localhost:8081/api/reservation';
   }
 
   public findAll(): Observable<Reservation[]> {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Reservation} from "../model/reservation";
-import { ReservationService} from "../reservation/reservation-service.service";
+import { ReservationService} from "../reservation-service/reservation-service.service";
 import { ActivatedRoute , Router} from "@angular/router";
 
 @Component({
@@ -9,14 +9,14 @@ import { ActivatedRoute , Router} from "@angular/router";
   styleUrls: ['./reservation-list.component.css']
 })
 export class ReservationListComponent implements OnInit {
-reservation: Reservation [] | undefined;
+reservations: Reservation [] | undefined;
 
   constructor(private reservationService : ReservationService)  { }
 
   ngOnInit() {
 
     this.reservationService.findAll().subscribe(data => {
-      this.reservation=data;
+      this.reservations=data;
     });
   }
   deleteReservation(reservation: Reservation){
@@ -26,7 +26,7 @@ reservation: Reservation [] | undefined;
 
   updateList(){
     this.reservationService.findAll().subscribe(data => {
-      this.reservation=data;
+      this.reservations=data;
     });
   }
 

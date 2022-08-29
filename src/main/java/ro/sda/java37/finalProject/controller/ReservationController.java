@@ -34,7 +34,7 @@ public class ReservationController {
     reservationService.deleteById(id);
   }
 
-  @PutMapping("/api/reservation/{id}")
+  @PutMapping("/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public void updateReservationById(@RequestBody Reservation reservation, @PathVariable Long id) {
     reservationService.updateObject(id, reservation);

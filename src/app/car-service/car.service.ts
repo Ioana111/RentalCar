@@ -37,6 +37,11 @@ export class CarService {
   public delete(car: Car) {
     return this.http.delete<Car>(<string>this.carsUrl + "/delete/{id}");
   }
+  public findAllAvailableCars(): Observable<Car[]>{
+    return this.http.get<Car[]>(this.carsUrl + "/availability");
+  }
+
+
 }
 
 

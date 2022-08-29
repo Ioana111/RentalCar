@@ -9,7 +9,7 @@ import { CarFormComponent } from './car-form/car-form.component';
 import { CarService} from './car-service/car.service';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component'
-import {ReservationService} from "./reservation/reservation-service.service";
+import {ReservationService} from "./reservation-service/reservation-service.service";
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { RefundListComponent } from './refund-list/refund-list.component';
@@ -23,9 +23,15 @@ import {BranchService} from "./branch-service/branch.service";
 import {EmployeeService} from "./employee-service/employee.service";
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
+import {HomeComponent} from "./home/home.component";
+import {MatNativeDateModule} from '@angular/material/core';
+import {MaterialExampleModule} from "./material"
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
+    HomeComponent,
     AppComponent,
     CarListComponent,
     CarFormComponent,
@@ -42,12 +48,16 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     EmployeeFormComponent,
     RefundListComponent,
     RefundFormComponent,
+
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatNativeDateModule,
+    MaterialExampleModule
   ],
   providers: [CarService, ReservationService, BranchService, EmployeeService,RefundService],
   bootstrap: [AppComponent]
