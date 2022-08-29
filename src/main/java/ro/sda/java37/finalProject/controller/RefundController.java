@@ -2,7 +2,6 @@ package ro.sda.java37.finalProject.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.java37.finalProject.dto.RefundDto;
 import ro.sda.java37.finalProject.entities.Refund;
@@ -19,7 +18,7 @@ public class RefundController {
   private RefundService refundService;
 
   @PostMapping("/create")
-  public RefundDto createRefund(@Valid RefundDto refund){
+  public RefundDto createRefund(@RequestBody @Valid RefundDto refund){
     return refundService.createRefund(refund);
   }
 

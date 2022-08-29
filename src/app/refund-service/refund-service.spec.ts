@@ -2,8 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import {RefundService} from "./refund.service";
 
 
-describe('RefundServiceService', () => {
+describe('RefundService', () => {
   let service: RefundService;
+
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
@@ -14,3 +15,4 @@ describe('RefundServiceService', () => {
     expect(service).toBeTruthy();
   });
 });
+

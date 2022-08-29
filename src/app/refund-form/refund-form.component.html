@@ -29,6 +29,7 @@
                required #comments="ngModel">
       </div>
 
+
       <div [hidden]="!brand.pristine" class="alert alert-danger"> All fields are required</div>
 
       <button type="submit" [disabled]="!refundForm.form.valid"
