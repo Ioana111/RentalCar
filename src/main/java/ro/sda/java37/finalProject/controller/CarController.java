@@ -26,7 +26,7 @@ public class CarController {
   //find all cars
   //search by def criteria
   @PostMapping()
-  public CarDto createCar(CarDto car) {
+  public CarDto createCar(@RequestBody CarDto car) {
     return carService.createCar(car);
   }
 
