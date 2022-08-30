@@ -1,19 +1,19 @@
 <div class="card my-5">
   <div class="card-body">
     <form (ngSubmit)="onSubmit()" #reservationForm="ngForm">
-      <div class="form-group">
-        <label for="customer">Customer</label>
-        <input
-          type="text"
-          [(ngModel)]="reservation.customer"
-          class="form-control"
-          id="customer"
-          name="customer"
-          placeholder="Enter customer's reservation"
-          required
-          #customer="ngModel"
-        />
-      </div>
+<!--      <div class="form-group">-->
+<!--        <label for="customer">Customer</label>-->
+<!--        <input-->
+<!--          type="text"-->
+<!--          [(ngModel)]="reservation.customer"-->
+<!--          class="form-control"-->
+<!--          id="customer"-->
+<!--          name="customer"-->
+<!--          placeholder="Enter customer's reservation"-->
+<!--          required-->
+<!--          #customer="ngModel"-->
+<!--        />-->
+<!--      </div>-->
 
       <div style="display: flex; justify-content: space-between; gap: 1rem">
         <div class="form-group" style="width: 50%">
@@ -72,19 +72,19 @@
         </div>
       </div>
       <div style="display: flex; justify-content: space-between; gap: 1rem">
-        <div class="form-group" style="width: 50%">
-          <label for="totalAmount">Total Amount</label>
-          <input
-            type="text"
-            [(ngModel)]="reservation.totalAmount"
-            class="form-control"
-            id="totalAmount"
-            name="totalAmount"
-            placeholder="Enter Total Amount"
-            required
-            #totalAmount="ngModel"
-          />
-        </div>
+<!--        <div class="form-group" style="width: 50%">-->
+<!--          <label for="totalAmount">Total Amount</label>-->
+<!--          <input-->
+<!--            type="text"-->
+<!--            [(ngModel)]="reservation.totalAmount"-->
+<!--            class="form-control"-->
+<!--            id="totalAmount"-->
+<!--            name="totalAmount"-->
+<!--            placeholder="Enter Total Amount"-->
+<!--            required-->
+<!--            #totalAmount="ngModel"-->
+<!--          />-->
+<!--        </div>-->
 
 <!--        <div class="form-group" style="width: 50%">-->
 <!--          <label for="warranty">Warranty</label>-->
@@ -101,9 +101,9 @@
 <!--        </div>-->
       </div>
 
-      <div [hidden]="!customer.pristine" class="alert alert-danger">
-        All fields are required
-      </div>
+<!--      <div [hidden]="!customer.pristine" class="alert alert-danger">-->
+<!--        All fields are required-->
+<!--      </div>-->
       <button
         type="submit"
         [disabled]="!reservationForm.form.valid"
