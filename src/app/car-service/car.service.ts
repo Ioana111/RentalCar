@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Car} from "../model/car";
+import {Reservation} from "../model/reservation";
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,8 @@ import {Car} from "../model/car";
 export class CarService {
 
   private readonly carsUrl: string | undefined;
+
+  reservation!: Reservation;
 
 
   constructor(private http: HttpClient) {
@@ -19,6 +22,16 @@ export class CarService {
     // @ts-ignore
     return this.http.get<Car[]>(this.carsUrl);
   }
+
+  public findAllAvailableCars(): Observable<Car[]>{
+
+    return this.http.get<Car[]>(this.carsUrl + "/availability");
+  }
+
+  public findCarById(carId: Number): Observable<Car>{
+    return this.http.get<Car>(this.carsUrl+"/"+carId);
+  }
+
 
   public save(car: Car) {
     return this.http.post<Car>(<string>this.carsUrl, car);
@@ -36,9 +49,6 @@ export class CarService {
 
   public delete(car: Car) {
     return this.http.delete<Car>(<string>this.carsUrl + "/delete/{id}");
-  }
-  public findAllAvailableCars(): Observable<Car[]>{
-    return this.http.get<Car[]>(this.carsUrl + "/availability");
   }
 
 

@@ -21,6 +21,7 @@ ngOnInit() {
       this.car=data;
     });
 }
+
 deleteCar(car: Car){
     this.carService.deleteCar(car).subscribe(data=>this.updateList());
 }

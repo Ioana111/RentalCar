@@ -14,6 +14,7 @@
         <th scope="col">Mileage</th>
         <th scope="col">Cost</th>
         <th scope="col">Availability</th>
+        <th scope="col">Actions</th>
 
 
       </tr>
@@ -30,7 +31,10 @@
         <td>{{ car.amountPerDay }}</td>
         <td>{{ car.available }}</td>
         <td><button type="submit" [disabled]
-                                  class="btn btn-info" (click)="deleteCar(car)">Delete</button> </td>
+                                  class="btn btn-danger" (click)="deleteCar(car)">Delete</button>
+          <span>&nbsp;</span>
+        <button type="submit" [disabled]
+                    class="btn btn-dark" [routerLink]="['/add-reservation', car.id]">Reserve</button> </td>
 
 
       </tr>

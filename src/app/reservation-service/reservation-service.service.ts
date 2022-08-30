@@ -11,7 +11,7 @@ export class ReservationService {
 
   private readonly reservationsUrl: string ;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,) {
     this.reservationsUrl = 'http://localhost:8081/api/reservation';
   }
 

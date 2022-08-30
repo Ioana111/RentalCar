@@ -23,16 +23,15 @@ import {BranchService} from "./branch-service/branch.service";
 import {EmployeeService} from "./employee-service/employee.service";
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
-import {HomeComponent} from "./home/home.component";
 import {MatNativeDateModule} from '@angular/material/core';
 import {MaterialExampleModule} from "./material"
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AdminComponent } from './admin/admin.component';
+import {HomeComponent} from "./home/home.component";
 
 @NgModule({
   declarations: [
-    HomeComponent,
     AppComponent,
     CarListComponent,
     CarFormComponent,
@@ -50,6 +49,7 @@ import { AdminComponent } from './admin/admin.component';
     RefundListComponent,
     RefundFormComponent,
     AdminComponent,
+    HomeComponent
 
   ],
   imports: [

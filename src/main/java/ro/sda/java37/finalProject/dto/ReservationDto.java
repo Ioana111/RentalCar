@@ -12,13 +12,13 @@ public class ReservationDto {
 
   private Long id;
   @NotNull // trebuie sa facem exceptie aici
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
   private Date dateOfBooking;
   @NotNull // trebuie sa facem exceptie aici
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
   private Date dateFrom;
   @NotNull // trebuie sa facem exceptie aici
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
   private Date dateTo;
   @NotNull
   private BigDecimal totalAmount; //sum of all reservation days - final price

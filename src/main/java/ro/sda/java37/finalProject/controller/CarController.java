@@ -11,6 +11,7 @@ import ro.sda.java37.finalProject.services.ReservationService;
 import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
@@ -34,6 +35,9 @@ public class CarController {
   public List<CarDto> listAllCars() {
     return carService.listAllCars();
   }
+
+  @GetMapping("/{id}")
+  public CarDto getCarById(@PathVariable("id") Long id){ return carService.getCarById(id);}
 
   /*The problem is that when we use application/x-www-form-urlencoded,
   Spring doesn't understand it as a RequestBody.
@@ -66,6 +70,8 @@ public class CarController {
   public List<CarDto> listAllAvailableCars(@RequestBody Date dateFrom, Date dateTo){
     return carService.retrieveAllAvailableCars(dateFrom, dateTo);
   }
+
+
 
 
 

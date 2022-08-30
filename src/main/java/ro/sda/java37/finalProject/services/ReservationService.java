@@ -25,9 +25,8 @@ public class ReservationService {
 @Transactional
   public ReservationDto createReservation(ReservationDto reservation) {
     Reservation reservationEntity = reservationMapper.convertToEntity(reservation);
-
     reservationRepository.save(reservationEntity);
-    Car car =reservationEntity.getCar();
+    Car car = reservationEntity.getCar();
     car.setAvailable(false);
     carRepository.save(car);
     return reservationMapper.convertToDto(reservationEntity);

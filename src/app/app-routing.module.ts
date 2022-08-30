@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'cars', component: CarListComponent },
   { path: 'add-car', component: CarFormComponent },
   { path: 'reservations', component: ReservationListComponent },
-  { path: 'add-reservation', component: ReservationFormComponent },
+  { path: 'add-reservation/:car_id', component: ReservationFormComponent },
   { path: 'employee', component: EmployeeListComponent},
   { path: 'add-employees', component: EmployeeFormComponent},
   { path: 'branch', component:BranchListComponent},

@@ -4,16 +4,15 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ro.sda.java37.finalProject.dto.CarDto;
 
-import ro.sda.java37.finalProject.dto.ReservationDto;
 import ro.sda.java37.finalProject.entities.Branch;
 import ro.sda.java37.finalProject.entities.Car;
-import ro.sda.java37.finalProject.entities.Reservation;
 import ro.sda.java37.finalProject.exceptions.EntityNotFoundError;
 import ro.sda.java37.finalProject.repository.CarRepository;
 import ro.sda.java37.finalProject.repository.CarRepositorySearchCriteria;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -66,4 +65,8 @@ public class CarService {
     return carRepository.retrieveAvailableCars(fromDate, toDate).stream().map(c->carMapper.convertToDto(c)).collect(Collectors.toList());
   }
 
+  public CarDto getCarById(Long id) {
+    Car car = carRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("No car id %s", id)));
+   return carMapper.convertToDto(car);
+  }
 }

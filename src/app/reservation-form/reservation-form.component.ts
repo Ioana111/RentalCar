@@ -1,6 +1,6 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Reservation} from "../model/reservation";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router, ParamMap,Params} from "@angular/router";
 import {ReservationService} from "../reservation-service/reservation-service.service";
 import {CarService} from "../car-service/car.service";
 import {Car} from "../model/car";
@@ -13,16 +13,16 @@ import {Car} from "../model/car";
 })
 export class ReservationFormComponent implements OnInit, OnChanges {
    reservation : Reservation ;
-   availableCars : Car[] | undefined;
-   selectedCar : number | undefined;
+   selectedCar !: number ;
+   car!: Car;
   constructor(
     private route : ActivatedRoute,
     private router : Router,
     private reservationService : ReservationService,
-    private carService : CarService
+    private carService : CarService,
   ) {
     this.reservation = new Reservation ();
-    carService.findAllAvailableCars().subscribe(result =>this.availableCars=result);
+
   }
 
   onSubmit (){
@@ -34,7 +34,13 @@ export class ReservationFormComponent implements OnInit, OnChanges {
 
   }
 
+
   ngOnInit(): void {
+    this.route.params.subscribe(params =>{
+      this.selectedCar= params['car_id'];
+    });
+    alert("Selected car:" + this.selectedCar);
+    this.carService.findCarById(this.selectedCar).subscribe(result => this.car=result);
   }
 
   ngOnChanges(changes: SimpleChanges): void {

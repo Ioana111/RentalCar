@@ -14,24 +14,7 @@
           #customer="ngModel"
         />
       </div>
-      <div class="form-group">
-        <!--        <label for="car">Car</label>-->
-        <!--        <input type="text" [(ngModel)]="reservation.car"-->
-        <!--               class="form-control"-->
-        <!--               id="car"-->
-        <!--               name="car"-->
-        <!--               placeholder="Enter car"-->
-        <!--               required #car="ngModel">-->
-        <mat-form-field appearance="fill">
-          <mat-label>Car</mat-label>
-          <mat-select [(value)]="selectedCar">
-            <mat-option>None</mat-option>
-            <mat-option *ngFor="let car of availableCars" value="car.id">{{
-              car.brand
-              }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
+
       <div style="display: flex; justify-content: space-between; gap: 1rem">
         <div class="form-group" style="width: 50%">
           <label for="dateFrom">Date From</label>

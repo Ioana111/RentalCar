@@ -24,6 +24,7 @@ public class ReservationController {
     return reservationService.createReservation(reservation);
   }
 
+
   @GetMapping()
   public List<ReservationDto> listAllReservations() {
     return reservationService.listAllReservation();
