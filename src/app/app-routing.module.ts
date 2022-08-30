@@ -13,9 +13,11 @@ import {CustomerListComponent} from "./customer-list/customer-list.component";
 import {RefundListComponent} from "./refund-list/refund-list.component";
 import {RefundFormComponent} from "./refund-form/refund-form.component";
 import {HomeComponent} from "./home/home.component";
+import {AdminComponent} from "./admin/admin.component";
 
 const routes: Routes = [
   { path: 'home', component:HomeComponent},
+  { path: 'admin', component:AdminComponent},
   { path: 'cars', component: CarListComponent },
   { path: 'add-car', component: CarFormComponent },
   { path: 'reservations', component: ReservationListComponent },

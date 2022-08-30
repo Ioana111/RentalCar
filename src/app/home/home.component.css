@@ -1,0 +1,10 @@
+.hero {
+  background-image: url("../../assets/pictures/ferrariportofinom.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 3rem;
+  min-height: 100vh;
+}

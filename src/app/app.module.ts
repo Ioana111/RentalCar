@@ -28,6 +28,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MaterialExampleModule} from "./material"
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     EmployeeFormComponent,
     RefundListComponent,
     RefundFormComponent,
+    AdminComponent,
 
   ],
   imports: [
