@@ -39,8 +39,8 @@ export class ReservationFormComponent implements OnInit, OnChanges {
     this.route.params.subscribe(params =>{
       this.selectedCar= params['car_id'];
     });
-    alert("Selected car:" + this.selectedCar);
-    this.carService.findCarById(this.selectedCar).subscribe(result => this.car=result);
+   // alert("Selected car:" + this.selectedCar);
+    // this.carService.findCarById(this.selectedCar).subscribe(result => this.car=result);
   }
 
   ngOnChanges(changes: SimpleChanges): void {

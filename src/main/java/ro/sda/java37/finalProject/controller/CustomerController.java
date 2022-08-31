@@ -39,4 +39,11 @@ public class CustomerController {
   public void updateCustomerById(@RequestBody Customer customer, @PathVariable Long id) {
     customerService.updateCustomer(id, customer);
   }
+
+  @GetMapping("/sign-in")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public CustomerDto findCustomerByEmail(@RequestBody String email) {
+    return customerService.findCustomerByEmail(email);
+
+  }
 }

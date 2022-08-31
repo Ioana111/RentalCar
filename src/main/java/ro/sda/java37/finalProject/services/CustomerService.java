@@ -2,9 +2,7 @@ package ro.sda.java37.finalProject.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ro.sda.java37.finalProject.dto.CarDto;
 import ro.sda.java37.finalProject.dto.CustomerDto;
-import ro.sda.java37.finalProject.entities.Car;
 import ro.sda.java37.finalProject.entities.Customer;
 import ro.sda.java37.finalProject.exceptions.EntityNotFoundError;
 import ro.sda.java37.finalProject.repository.CustomerRepository;
@@ -35,7 +33,13 @@ public class CustomerService {
     }
 
   public void updateCustomer(Long id, Customer customer) {
-    customerRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Specified custoomer with %s does not exist", id)));
+    customerRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Specified customer with %s does not exist", id)));
     customerRepository.save(customer);
   }
+
+    public CustomerDto findCustomerByEmail(String email) {
+      Customer customer = customerRepository.findByEmail(email).orElseThrow(() -> new EntityNotFoundError(String.format("Specified customer with %s email does not exist ,  please SIGN UP", email)));
+     return customerMapper.convertToDto(customer);
+
+    }
 }

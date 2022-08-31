@@ -29,6 +29,8 @@ import {MaterialExampleModule} from "./material"
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AdminComponent } from './admin/admin.component';
 import {HomeComponent} from "./home/home.component";
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -42,14 +44,14 @@ import {HomeComponent} from "./home/home.component";
     CustomerFormComponent,
     CustomerListComponent,
     BranchListComponent,
-    // CompanyListComponent,
     BranchFormComponent,
-    // CompanyFormComponent
     EmployeeFormComponent,
     RefundListComponent,
     RefundFormComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    SignUpComponent,
+    MenuComponent
 
   ],
   imports: [
