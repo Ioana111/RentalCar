@@ -31,6 +31,9 @@ import { AdminComponent } from './admin/admin.component';
 import {HomeComponent} from "./home/home.component";
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { MenuComponent } from './menu/menu.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { MenuComponent } from './menu/menu.component';
     AdminComponent,
     HomeComponent,
     SignUpComponent,
-    MenuComponent
+    MenuComponent,
+    LoginComponent,
+    LogoutComponent,
+    HeaderComponent
 
   ],
   imports: [

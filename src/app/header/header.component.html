@@ -1,0 +1,14 @@
+
+  <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
+    <div><a href="./car-list.component.html" class="navbar-brand">LOG OUT</a></div>
+
+    <ul class="navbar-nav">
+
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/customer" class="nav-link">View Customers</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/create-customer" class="nav-link">Add New Customer</a></li>
+      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
+
+    </ul>
+  </nav>
+

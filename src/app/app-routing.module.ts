@@ -14,6 +14,9 @@ import {RefundListComponent} from "./refund-list/refund-list.component";
 import {RefundFormComponent} from "./refund-form/refund-form.component";
 import {HomeComponent} from "./home/home.component";
 import {AdminComponent} from "./admin/admin.component";
+import {LoginComponent} from "./login/login.component";
+import {LogoutComponent} from "./logout/logout.component";
+import {AuthGuardService} from "./service/auth-guard.service";
 
 const routes: Routes = [
   { path: 'home', component:HomeComponent},
@@ -26,11 +29,12 @@ const routes: Routes = [
   { path: 'add-employees', component: EmployeeFormComponent},
   { path: 'branch', component:BranchListComponent},
   { path: 'add-branches', component: BranchFormComponent},
-  { path: 'add-customer', component: CustomerFormComponent},
+  { path: 'add-customer', component: CustomerFormComponent, canActivate:[AuthGuardService] },
   { path: 'customers', component: CustomerListComponent},
   { path: 'refund', component: RefundListComponent},
   { path: 'add-refund', component: RefundFormComponent},
-
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component:LogoutComponent, canActivate:[AuthGuardService]},
 
 
 ];
