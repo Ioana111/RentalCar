@@ -21,9 +21,9 @@ public class ReservationDto {
   private LocalDate dateOfBooking;
   @NotNull
   @JsonDeserialize(using = LocalDateDeserializer.class)
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+//  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
   private LocalDate dateFrom;
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+//  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
   @JsonDeserialize(using = LocalDateDeserializer.class)
   private LocalDate dateTo;
   @NotNull

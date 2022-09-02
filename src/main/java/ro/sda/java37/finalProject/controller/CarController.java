@@ -1,11 +1,13 @@
 package ro.sda.java37.finalProject.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.java37.finalProject.dto.BranchDto;
 import ro.sda.java37.finalProject.dto.CarDto;
 import ro.sda.java37.finalProject.entities.Car;
+import ro.sda.java37.finalProject.entities.DatesDto;
 import ro.sda.java37.finalProject.services.CarService;
 import ro.sda.java37.finalProject.services.ReservationService;
 
@@ -69,8 +71,8 @@ public class CarController {
   }
 
   @GetMapping("/availability")
-  public List<CarDto> listAllAvailableCars(@RequestBody LocalDate dateFrom, LocalDate dateTo){
-    return carService.retrieveAllAvailableCars(dateFrom, dateTo);
+  public List<CarDto> listAllAvailableCars(@RequestBody DatesDto datesDto){
+    return carService.retrieveAllAvailableCars(datesDto.getDateFrom(), datesDto.getDateTo());
   }
 
 

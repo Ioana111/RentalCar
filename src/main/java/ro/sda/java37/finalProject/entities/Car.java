@@ -1,6 +1,7 @@
 package ro.sda.java37.finalProject.entities;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.constraints.Length;
 
