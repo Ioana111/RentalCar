@@ -1,21 +1,25 @@
 .top-line {
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%;
   background-color: #222;
-  position: relative;
-  height: 60px;
+  /*position: relative;*/
+  /*height: 60px;*/
 }
 
 .top-line .logo {
   padding-left: 25px;
-  left: 0;
+  /*left: 0;*/
   display: inline-block;
   position: absolute;
   line-height: 55px;
 }
 
 .main-menu {
-  padding: 0 130px;
+  /*padding: 0 ;*/
   width: 100%;
   text-align: center;
+  /*transition: top 0.3s;*/
 }
 
 .main-menu ul {

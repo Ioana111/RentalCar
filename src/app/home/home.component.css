@@ -2,14 +2,20 @@
   background-image: url("../../assets/pictures/ferrariportofinom.jpg");
   background-size: cover;
   background-position: center;
-  display: flex;
-  justify-content: flex-end;
+  /*display: flex;*/
+  /*justify-content: flex-end;*/
   align-items: center;
-  padding: 3rem;
+  /*padding: 3rem;*/
   min-height: 100vh;
 }
 .title{
+  align-items: center;
   color:#eeeeee;
+}
 
+.reservation-form{
+  padding: 3rem;
+  width: 30%;
+  opacity: 90%;
 }
 
