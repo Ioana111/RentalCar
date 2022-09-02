@@ -2,11 +2,7 @@ package ro.sda.java37.finalProject.repository;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import ro.sda.java37.finalProject.dto.CarDto;
 import ro.sda.java37.finalProject.entities.Car;
 
@@ -53,11 +49,11 @@ public class CarRepositorySearchCriteria {
           Predicate hasMileage = builder.equal(root.get("car0_.mileage"), search.getMileage());
           predicates.add(hasMileage);
         }
-//          if (search.getBranch()!=null) {
-//            Predicate hasBranch = builder.equal(root.get("car0_.branch"), search.getBranch());
-//            predicates.add(hasBranch);
-//
-//          }
+          if (search.getBranch()!=null) {
+            Predicate hasBranch = builder.equal(root.get("car0_.branch"), search.getBranch());
+            predicates.add(hasBranch);
+
+          }
 
         query.where(builder.and(predicates.toArray(new Predicate[predicates.size()])));
 

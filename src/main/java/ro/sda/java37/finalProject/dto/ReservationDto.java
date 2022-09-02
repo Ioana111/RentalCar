@@ -1,30 +1,36 @@
 package ro.sda.java37.finalProject.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import lombok.Data;
+import lombok.extern.jackson.Jacksonized;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
+@Jacksonized
 public class ReservationDto {
 
   private Long id;
-  @NotNull // trebuie sa facem exceptie aici
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-  private Date dateOfBooking;
-  @NotNull // trebuie sa facem exceptie aici
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-  private Date dateFrom;
-  @NotNull // trebuie sa facem exceptie aici
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-  private Date dateTo;
+  @NotNull
+  @JsonDeserialize(using = LocalDateDeserializer.class)
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+  private LocalDate dateOfBooking;
+  @NotNull
+  @JsonDeserialize(using = LocalDateDeserializer.class)
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+  private LocalDate dateFrom;
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+  @JsonDeserialize(using = LocalDateDeserializer.class)
+  private LocalDate dateTo;
   @NotNull
   private BigDecimal totalAmount; //sum of all reservation days - final price
   @NotNull
   private BigDecimal warranty;
-//  private CarDto car;
+  //  private CarDto car;
   private long carId;
 
 }

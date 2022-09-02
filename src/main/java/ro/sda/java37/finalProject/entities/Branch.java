@@ -22,5 +22,9 @@ public class Branch {
   @OneToMany(mappedBy = "workingBranch")
     private List<Employee> facilityEmployees;
 
+  @OneToMany(mappedBy = "branch")
+  private List<Car> cars;
 
+  @OneToMany(mappedBy = "branchOfLoan")
+  private List<Reservation> reservations;
 }

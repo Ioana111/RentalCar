@@ -2,14 +2,17 @@ package ro.sda.java37.finalProject.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import ro.sda.java37.finalProject.dto.BranchDto;
 import ro.sda.java37.finalProject.dto.CarDto;
 
 import ro.sda.java37.finalProject.entities.Branch;
 import ro.sda.java37.finalProject.entities.Car;
 import ro.sda.java37.finalProject.exceptions.EntityNotFoundError;
+import ro.sda.java37.finalProject.repository.BranchRepository;
 import ro.sda.java37.finalProject.repository.CarRepository;
 import ro.sda.java37.finalProject.repository.CarRepositorySearchCriteria;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -21,6 +24,8 @@ public class CarService {
   CarMapper carMapper;
   CarRepository carRepository;
   CarRepositorySearchCriteria carRepositorySearchCriteria;
+
+  BranchRepository branchRepository;
 
   public CarDto createCar(CarDto car) {
     Car carEntity = carMapper.convertToEntity(car);
@@ -61,7 +66,8 @@ public class CarService {
     carReturned.setBranch(branch);
   }
 
-  public List<CarDto> retrieveAllAvailableCars(Date fromDate, Date toDate){
+  public List<CarDto> retrieveAllAvailableCars(LocalDate fromDate, LocalDate toDate){
+
     return carRepository.retrieveAvailableCars(fromDate, toDate).stream().map(c->carMapper.convertToDto(c)).collect(Collectors.toList());
   }
 
@@ -69,4 +75,6 @@ public class CarService {
     Car car = carRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("No car id %s", id)));
    return carMapper.convertToDto(car);
   }
+
+
 }

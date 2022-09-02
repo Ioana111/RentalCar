@@ -38,4 +38,10 @@ public class BranchService {
     branchRepository.save(entity);
   }
 
+  public List<BranchDto> listBranchByProfitability(){
+    return branchRepository.retriveProfitabilityPerBranch().stream().map(branch-> branchMapper.convertToDto(branch)).collect(Collectors.toList());
+  }
+
+
+
 }

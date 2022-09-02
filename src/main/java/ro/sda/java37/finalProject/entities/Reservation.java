@@ -7,7 +7,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
+
 
 @Entity
 @Data
@@ -17,15 +19,15 @@ public class Reservation {
   @GeneratedValue
   private Long id;
 
-  private Date dateOfBooking;
+  private LocalDate dateOfBooking;
   @ManyToOne
   private Customer customer;
   @ManyToOne
   private Car car;
 
-  private Date dateFrom;
+  private LocalDate dateFrom;
 
-  private Date dateTo;
+  private LocalDate dateTo;
   @ManyToOne
   private Branch branchOfLoan;
   @ManyToOne

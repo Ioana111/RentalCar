@@ -38,4 +38,9 @@ public class BranchController {
   public void updateBranchById(@RequestBody @Valid BranchDto branchDto, @PathVariable Long id) {
     branchService.updateObject(id, branchDto);
   }
+
+  @GetMapping("/profitability")
+  public List<BranchDto> listAllBranchesProfitability(){
+    return branchService.listBranchByProfitability();
+  }
 }
