@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CarListComponent } from './car-list/car-list.component';
@@ -30,10 +30,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AdminComponent } from './admin/admin.component';
 import {HomeComponent} from "./home/home.component";
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -54,11 +54,10 @@ import { HeaderComponent } from './header/header.component';
     AdminComponent,
     HomeComponent,
     SignUpComponent,
-    MenuComponent,
     LoginComponent,
     LogoutComponent,
-    HeaderComponent
-
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +66,8 @@ import { HeaderComponent } from './header/header.component';
     HttpClientModule,
     FormsModule,
     MatNativeDateModule,
-    MaterialExampleModule
+    MaterialExampleModule,
+    ReactiveFormsModule
   ],
   providers: [CarService, ReservationService, BranchService, EmployeeService,RefundService],
   bootstrap: [AppComponent]

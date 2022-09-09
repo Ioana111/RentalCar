@@ -1,14 +1,26 @@
-
-  <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
-    <div><a href="./car-list.component.html" class="navbar-brand">LOG OUT</a></div>
-
-    <ul class="navbar-nav">
-
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/customer" class="nav-link">View Customers</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/create-customer" class="nav-link">Add New Customer</a></li>
-      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
-
+<header class="top-line">
+  <a href="#" class="logo">   <!--alt="logo alt"--></a>
+  <div class="mobile-menu-btn"><i class="fa fa-bars"></i> MENU</div>
+  <nav class="main-menu top-menu">
+    <ul>
+      <li class="list-inline-item">
+        <a routerLink="/cars" class="btn">Cars</a>
+      </li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
     </ul>
   </nav>
+</header>
+<!--  <nav class ="navbar navbar-expand-md navbar-dark bg-dark">-->
+<!--    <div><a href="./car-list.component.html" class="navbar-brand">LOG OUT</a></div>-->
+
+<!--    <ul class="navbar-nav">-->
+
+<!--      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/customer" class="nav-link">View Customers</a></li>-->
+<!--      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/create-customer" class="nav-link">Add New Customer</a></li>-->
+<!--      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>-->
+<!--      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>-->
+
+<!--    </ul>-->
+<!--  </nav>-->
 

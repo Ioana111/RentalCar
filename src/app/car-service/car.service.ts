@@ -3,19 +3,21 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Car} from "../model/car";
 import {Reservation} from "../model/reservation";
+import {ReservationDates} from "../model/reservationDates";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarService {
 
-  private readonly carsUrl: string | undefined;
-
+  //private readonly carsUrl: string | undefined;
+  private carsUrl = environment.apiBaseUrl;
   reservation!: Reservation;
 
 
   constructor(private http: HttpClient) {
-    this.carsUrl = 'http://localhost:8081/api/car';
+    //this.carsUrl = 'http://localhost:8081/api/car';
   }
 
   public findAll(): Observable<Car[]> {
@@ -23,9 +25,10 @@ export class CarService {
     return this.http.get<Car[]>(this.carsUrl);
   }
 
-  public findAllAvailableCars(): Observable<Car[]>{
-
-    return this.http.get<Car[]>(this.carsUrl + "/availability");
+  public findAllAvailableCars(reservationDates: ReservationDates): Observable<Car[]>{
+    //return this.http.get<Car[]>(this.carsUrl + "/availability", reservationDates);
+ // @ts-ignore
+    return this.http.get<Car[]>(`${this.carsUrl}/availability`, reservationDates, {responseType:JSON});
   }
 
   public findCarById(carId: Number): Observable<Car>{

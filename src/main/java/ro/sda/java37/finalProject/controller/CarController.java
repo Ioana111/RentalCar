@@ -66,7 +66,10 @@ public class CarController {
   }
 
   @GetMapping("/availability")
+  @ResponseStatus(HttpStatus.OK)
   public List<CarDto> listAllAvailableCars(@RequestBody DatesDto datesDto){
+    System.out.println(datesDto.getDateTo() + " " + datesDto.getDateFrom());
+    System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
     return carService.retrieveAllAvailableCars(datesDto.getDateFrom(), datesDto.getDateTo());
   }
 
