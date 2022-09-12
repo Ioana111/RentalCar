@@ -1,14 +1,26 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
 
-.footer{
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding-top: 60px;
+}
+
+/*li > button{*/
+/*  margin-left: 1000px;*/
+/*}*/
+
+.footer {
   position: absolute;
   bottom: 0;
   width: 100%;
 
 }
+
 .top-line {
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
@@ -61,6 +73,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: block;
   transition: color .25s ease, background-color .25s ease;
 }
+
 .mobile-menu-btn {
   color: #fff;
   text-align: center;
@@ -102,6 +115,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mobile-menu .top-menu ul li a:hover {
   text-decoration: none;
 }
+
 .phone {
   position: absolute;
   padding-right: 25px;
@@ -118,12 +132,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding-right: 10px;
   font-size: 20px;
 }
+
 @media (max-width: 575.98px) {
   /*.top-line .logo {*/
   /*  padding-left: 5px;*/
   /*}*/
-
-
   .top-line .mobile-menu-btn {
     padding-right: 5px;
     display: block;
@@ -136,6 +149,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     padding: 0 30px;
   }
 }
+
 @media (max-width: 1199.98px) {
   .main-menu {
     display: none;

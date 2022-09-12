@@ -69,7 +69,7 @@ import { FooterComponent } from './footer/footer.component';
     MaterialExampleModule,
     ReactiveFormsModule
   ],
-  providers: [CarService, ReservationService, BranchService, EmployeeService,RefundService],
+  providers: [CarService, ReservationService, BranchService, EmployeeService,RefundService,LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

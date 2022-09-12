@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { AuthenticationService } from '../service/authentication.service';
+import {LoginComponent} from "../login/login.component";
 
 @Component({
   selector: 'app-header',
@@ -7,12 +8,22 @@ import { AuthenticationService } from '../service/authentication.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  // @Input() login!: LoginComponent
   loginService: any;
+  customerLoggedIn: boolean = false;
 
-  constructor( loginService:AuthenticationService) { }
+  constructor(private login:LoginComponent) { }
+
 
   ngOnInit() {
+    this.customerLoggedIn = this.login.loginCustomerLoggedIn;
 
+    // if(this.userLoggedIn){
+    //
+    // }
   }
+
+
+
 
 }

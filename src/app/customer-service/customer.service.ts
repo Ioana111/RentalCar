@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Customer} from "../model/customer";
+import {Car} from "../model/car";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,11 @@ export class CustomerService {
   public findAll(): Observable<Customer[]> {
     // @ts-ignore
     return this.http.get<Customer[]>(this.customerUrl);
+  }
+
+  public loginCustomer(email: String, password:String): Observable<Customer>{
+    // @ts-ignore
+    return this.http.get<Customer>(`${this.customerUrl}/login/${email}/${password}` );
   }
 
   public save(customer: Customer) {

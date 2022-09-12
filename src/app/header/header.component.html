@@ -8,6 +8,10 @@
       </li>
       <li><a href="#">Services</a></li>
       <li><a href="#">Contact</a></li>
+      <li style="padding-left: 100px"></li>
+      <li *ngIf="!customerLoggedIn"><button type="button" class="btn btn-primary" routerLink="/login">LOGIN</button></li>
+      <li style="padding-left: 30px"></li>
+      <li *ngIf="!customerLoggedIn"><button type="button" class="btn btn-secondary"  routerLink="/sign-up">SIGN-UP</button></li>
     </ul>
   </nav>
 </header>
