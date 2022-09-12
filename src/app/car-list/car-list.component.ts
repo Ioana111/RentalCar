@@ -29,7 +29,7 @@ export class CarListComponent implements OnInit {
   // }
 
   ngOnInit() {
-    //this.showAllCars()\
+    this.showAllCars();
 
       this.route.queryParams.subscribe(params => {
         this.availableCarsList = JSON.parse(params['prop']);
