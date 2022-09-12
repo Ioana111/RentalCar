@@ -1,7 +1,9 @@
 package ro.sda.java37.finalProject.controller;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.java37.finalProject.dto.CarDto;
 import ro.sda.java37.finalProject.entities.Car;
@@ -10,6 +12,7 @@ import ro.sda.java37.finalProject.services.CarService;
 import ro.sda.java37.finalProject.services.ReservationService;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -65,13 +68,25 @@ public class CarController {
     carService.updateCarByBranch(id, car.getBranch());
   }
 
-  @GetMapping("/availability")
-  @ResponseStatus(HttpStatus.OK)
-  public List<CarDto> listAllAvailableCars(@RequestBody DatesDto datesDto){
-    System.out.println(datesDto.getDateTo() + " " + datesDto.getDateFrom());
-    System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-    return carService.retrieveAllAvailableCars(datesDto.getDateFrom(), datesDto.getDateTo());
+//  @GetMapping("/availability")
+//  @ResponseStatus(HttpStatus.OK)
+//  public List<CarDto> listAllAvailableCars(@RequestBody DatesDto datesDto){
+//    System.out.println(datesDto.getDateTo() + " " + datesDto.getDateFrom());
+//    System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+//    return carService.retrieveAllAvailableCars(datesDto.getDateFrom(), datesDto.getDateTo());
+//  }
+
+  @GetMapping("/availability/{dateFrom}/{dateTo}")
+  public ResponseEntity<List<CarDto>> listAllAvailableCars(@PathVariable("dateFrom") String dateFromString,
+                                                           @PathVariable("dateTo") String dateToString){
+    LocalDate dateFrom = LocalDate.parse(dateFromString);
+    LocalDate dateTo = LocalDate.parse(dateToString);;
+
+    List<CarDto> carDtoList = carService.retrieveAllAvailableCars(dateFrom,dateTo);
+    return new ResponseEntity<>(carDtoList,HttpStatus.OK);
   }
+
+
 
 
 

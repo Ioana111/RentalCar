@@ -6,7 +6,7 @@ import {CarService} from "../car-service/car.service";
 import {Car} from "../model/car";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {error} from "@angular/compiler/src/util";
-import {ReservationDates} from "../model/reservationDates";
+import {ReservationDates} from "../model/reservation-dates";
 
 
 @Component({
@@ -19,7 +19,8 @@ export class ReservationFormComponent implements OnInit {
   selectedCar !: number;
   car!: Car;
   public reservationForm!: FormGroup;
-  cars!: Car[];
+
+  availableCars: Car[] | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,12 +48,14 @@ export class ReservationFormComponent implements OnInit {
     this.reservationForm = new FormGroup({
       dateFrom: new FormControl('', [Validators.required]),
       dateTo: new FormControl('', [Validators.required])
+
     })
 
     // Old shit
-    this.route.params.subscribe(params => {
-      this.selectedCar = params['car_id'];
-    });
+    // this.route.params.subscribe(params => {
+    //   this.selectedCar = params['car_id'];
+    // });
+
     // alert("Selected car:" + this.selectedCar);
     // this.carService.findCarById(this.selectedCar).subscribe(result => this.car=result);
   }
@@ -61,21 +64,28 @@ export class ReservationFormComponent implements OnInit {
   //
   // }
 
+
   submitFormAvailableCars() {
     // alert(this.reservationForm.value.dateFrom);
     // alert(this.reservationForm.value.dateTo);
-    this.carService.findAllAvailableCars(this.reservationForm.value).subscribe({
+    //let formObject = this.reservationForm.getRawValue();
+    //let serializedForm = JSON.stringify(this.reservationForm.value);
+
+    this.carService.findAllAvailableCars(this.reservationForm.value.dateFrom,
+      this.reservationForm.value.dateTo)
+      .subscribe({
       next:(response: Car[]) => {
-        this.cars = response;
-        alert("it work!");
+        this.availableCars = response;
+
+        this.router.navigate([`/cars`],{ queryParams:{prop: JSON.stringify(this.availableCars)}});
       },
       error:(errorResponse: Response) => {
         if(errorResponse.status == 400){
           alert("not work!")
         }
-
       }
     })
+
   }
 
 }

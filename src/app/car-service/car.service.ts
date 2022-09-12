@@ -3,8 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Car} from "../model/car";
 import {Reservation} from "../model/reservation";
-import {ReservationDates} from "../model/reservationDates";
-import { environment } from 'src/environments/environment';
+import {environment} from 'src/environments/environment';
+import {ReservationDates} from "../model/reservation-dates";
 
 @Injectable({
   providedIn: 'root'
@@ -25,14 +25,14 @@ export class CarService {
     return this.http.get<Car[]>(this.carsUrl);
   }
 
-  public findAllAvailableCars(reservationDates: ReservationDates): Observable<Car[]>{
+  public findAllAvailableCars(dateFrom:String, dateTo:String): Observable<Car[]> {
     //return this.http.get<Car[]>(this.carsUrl + "/availability", reservationDates);
- // @ts-ignore
-    return this.http.get<Car[]>(`${this.carsUrl}/availability`, reservationDates, {responseType:JSON});
+
+    return this.http.get<Car[]>(`${this.carsUrl}/availability/${dateFrom}/${dateTo}` );
   }
 
-  public findCarById(carId: Number): Observable<Car>{
-    return this.http.get<Car>(this.carsUrl+"/"+carId);
+  public findCarById(carId: Number): Observable<Car> {
+    return this.http.get<Car>(this.carsUrl + "/" + carId);
   }
 
 
@@ -45,7 +45,7 @@ export class CarService {
   }
 
   public deleteCar(car: Car): Observable<Car> {
-    alert("Are you sure you want to delete " + car.brand +" having the id "+ car.id + "?");
+    alert("Are you sure you want to delete " + car.brand + " having the id " + car.id + "?");
 
     return this.http.get<Car>(this.carsUrl + "/delete/" + car.id);
   }
